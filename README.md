@@ -1,5 +1,7 @@
 # Pizza Chef
 A Pixmoly game
+### About
+A DIG4715 Project
 ## Members
 April Dean - Tech  
 Daniel Hudson - Programmer  
