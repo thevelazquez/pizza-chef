@@ -343,8 +343,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dda5ce38eef1db49a3c6ac688e07c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1280167084}
   defaultSpeed: 4
+  jumpForce: 6
+  hoverSpeed: -0.5
+  upSpeed: 0
 --- !u!1 &1280167082
 GameObject:
   m_ObjectHideFlags: 0

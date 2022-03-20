@@ -7,12 +7,14 @@ public class PlayerControl : MonoBehaviour
 {
     PlayerControls controls;
     CharacterController controller;
-    public Camera camera;
     Vector2 move2;
     public float defaultSpeed = 4f;
+    public float jumpForce = 6f;
+    public float hoverSpeed = -.5f;
+    bool doHover = false;
+    bool hovering = false;
     float playerSpeed;
-    float upSpeed;
-    float gravity;
+    public float upSpeed;
     
     // Start is called before the first frame update
     void Start()
@@ -24,36 +26,53 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gravity -= 9.81f;
-        upSpeed = gravity;
-
-        Vector3 move3 = Vector3.right * move2.x * playerSpeed + Vector3.forward * move2.y * playerSpeed + Vector3.up * upSpeed;
-
-        controller.Move(move3 * Time.deltaTime);
-        if (controller.isGrounded)
+        if(!controller.isGrounded && !hovering)
         {
-            gravity = 0;
+            upSpeed -= 9.81f*Time.deltaTime; //gravity
         }
+        CheckHoverable(); //checks if player can actually hover
+        Vector3 move3 = (Vector3.right * move2.x * playerSpeed) + (Vector3.forward * move2.y * playerSpeed) + (Vector3.up * upSpeed); //move2 is a vector2 taken from player input hence y instead of z
+        controller.Move(move3 * Time.deltaTime);
     }
 
     void Jump()
     {
+        doHover = true; //bool for attempting to hover; doHover automatically set as false when released jump button; 
+        if (controller.isGrounded) //can only jump from ground
+        {
+            upSpeed = jumpForce;
+        }
+    }
 
+    void CheckHoverable()
+    {
+        if (doHover)
+        {
+            if (!controller.isGrounded && upSpeed <= 0) //is in air and past apex of jump height
+            {
+                hovering = true;
+                upSpeed = hoverSpeed;
+            }
+        }
     }
 
     void Awake()
     {
         controls = new PlayerControls();
-
+        //to add controls, edit PlayerControls -> add an action to Gameplay Action map -> add desired keybinds. Save asset when done.
         controls.Gameplay.Move.performed += ctx => move2 = ctx.ReadValue<Vector2>();
         controls.Gameplay.Move.canceled += ctx => move2 = Vector2.zero;
+        controls.Gameplay.Jump.performed += ctx => Jump(); //hover is set to true in Jump()
+        controls.Gameplay.Jump.canceled += ctx => doHover = hovering = false;
     }
 
+    //Use this to enable player input
     void OnEnable()
     {
         controls.Gameplay.Enable();
     }
 
+    //Use this to disable player input
     void OnDisable()
     {
         controls.Gameplay.Disable();
