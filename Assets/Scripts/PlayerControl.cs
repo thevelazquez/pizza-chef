@@ -11,10 +11,12 @@ public class PlayerControl : MonoBehaviour
     public float defaultSpeed = 4f;
     public float jumpForce = 6f;
     public float hoverSpeed = -.5f;
+    public float upSpeed;
     bool doHover = false;
     bool hovering = false;
+    bool canDig = false;
     float playerSpeed;
-    public float upSpeed;
+    GameObject diggableRef;
     
     // Start is called before the first frame update
     void Start()
@@ -65,6 +67,7 @@ public class PlayerControl : MonoBehaviour
         controls.Gameplay.Move.canceled += ctx => move2 = Vector2.zero;
         controls.Gameplay.Jump.performed += ctx => Jump(); //hover is set to true in Jump()
         controls.Gameplay.Jump.canceled += ctx => doHover = hovering = false;
+        controls.Gameplay.Dig.performed += ctx => Dig();
     }
 
     //Use this to enable player input
@@ -77,5 +80,27 @@ public class PlayerControl : MonoBehaviour
     void OnDisable()
     {
         controls.Gameplay.Disable();
+    }
+
+    void Dig() {
+        Debug.Log("dig");
+        if (canDig) {
+            diggableRef.SetActive(false);
+        }
+    }
+
+    void OnTriggerEnter(Collider x) {
+        if (x.tag == "Diggable") {
+            canDig = true;
+            diggableRef = x.gameObject;
+            Debug.Log("You can dig");
+        }
+    }
+    void OnTriggerExit(Collider x) {
+        if (x.tag == "Diggable") {
+            canDig = false;
+            diggableRef = null;
+            Debug.Log("You can't dig");
+        }
     }
 }
