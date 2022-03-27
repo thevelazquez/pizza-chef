@@ -35,9 +35,9 @@ public class PlayerControl : MonoBehaviour
             upSpeed -= 9.81f*Time.deltaTime; //gravity
         }
         CheckHoverable(); //checks if player can actually hover
-        Vector3 move3 = (Vector3.right * move2.x * playerSpeed * orientation.x) + (Vector3.forward * move2.y * playerSpeed * orientation.y); //move2 is a vector2 taken from player input hence y instead of z
+        Vector3 move3 = (Vector3.right * move2.x * playerSpeed * orientation.x) + (Vector3.forward * move2.y * playerSpeed * orientation.z); //move2 is a vector2 taken from player input hence y instead of z
         controller.Move(move3 * Time.deltaTime);
-        controller.Move(Vector3.up * upSpeed * Time.deltaTime * orientation.z);
+        controller.Move(Vector3.up * upSpeed * Time.deltaTime * orientation.y);
     }
 
     void Jump()
