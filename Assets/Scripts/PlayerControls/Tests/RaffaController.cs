@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class PlayerControl : MonoBehaviour
+public class RaffaController : MonoBehaviour
 {
     PlayerControls controls;
-    CharacterController controller;
+    public CharacterController controller;
+    private Animator animator;
+    public Transform cam;
     Vector2 move2;
     public float defaultSpeed = 4f;
     public float rotationSpeed;
@@ -19,15 +20,14 @@ public class PlayerControl : MonoBehaviour
     bool canDig = false;
     float playerSpeed;
     GameObject diggableRef;
-    Animator animator;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         playerSpeed = defaultSpeed;
+        animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         orientation = Vector3.one;
-        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -96,9 +96,6 @@ public class PlayerControl : MonoBehaviour
     {
         move2 = input;
         animator.SetBool("IsWalking", true);
-        Quaternion toRotation = Quaternion.LookRotation(move2, Vector3.up);
-
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
     }
 
     void MoveEnd()
@@ -107,25 +104,32 @@ public class PlayerControl : MonoBehaviour
         animator.SetBool("IsWalking", false);
     }
 
-    void Dig() {
-        Debug.Log("dig");
-        if (canDig) {
-            diggableRef.SetActive(false);
+        void Dig() 
+        {
+            Debug.Log("dig");
+            if (canDig)
+            {
+                diggableRef.SetActive(false);
+            }
         }
-    }
 
-    void OnTriggerEnter(Collider x) {
-        if (x.tag == "Diggable") {
-            canDig = true;
-            diggableRef = x.gameObject;
-            Debug.Log("You can dig");
+        void OnTriggerEnter(Collider x)
+        {
+            if (x.tag == "Diggable")
+            {
+                canDig = true;
+                diggableRef = x.gameObject;
+                Debug.Log("You can dig");
+            }
+        }
+
+        void OnTriggerExit(Collider x) 
+        {
+            if (x.tag == "Diggable")
+            {
+                canDig = false;
+                diggableRef = null;
+                Debug.Log("You can't dig");
+            }
         }
     }
-    void OnTriggerExit(Collider x) {
-        if (x.tag == "Diggable") {
-            canDig = false;
-            diggableRef = null;
-            Debug.Log("You can't dig");
-        }
-    }
-}
