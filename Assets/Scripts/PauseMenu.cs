@@ -13,24 +13,23 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown("p"))
+            {
+                Debug.Log("Test");
+                if(isPaused)
                 {
-                    if(isPaused)
-                    {
-                            CloseMenu();
-                    }
-                    else
-                    {
-                            OpenMenu();
-                    }
-                           
-
+                    CloseMenu();
                 }
+                else
+                {
+                        OpenMenu();
+                }
+        }
         
     }
 public void OpenMenu()
     {
         pauseCanvasMenu.SetActive(true);
-            isPaused = true;
+        isPaused = true;
     }
 public void CloseMenu()
     {
