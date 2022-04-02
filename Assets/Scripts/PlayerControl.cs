@@ -9,6 +9,7 @@ public class PlayerControl : MonoBehaviour
     CharacterController controller;
     Vector2 move2;
     public float defaultSpeed = 4f;
+    public float rotationSpeed;
     public float jumpForce = 6f;
     public float hoverSpeed = -.5f;
     public float upSpeed;
@@ -18,6 +19,7 @@ public class PlayerControl : MonoBehaviour
     bool canDig = false;
     float playerSpeed;
     GameObject diggableRef;
+    Animator animator;
     
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class PlayerControl : MonoBehaviour
         playerSpeed = defaultSpeed;
         controller = GetComponent<CharacterController>();
         orientation = Vector3.one;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -92,11 +95,16 @@ public class PlayerControl : MonoBehaviour
     void Move(Vector2 input)
     {
         move2 = input;
+        animator.SetBool("IsWalking", true);
+        Quaternion toRotation = Quaternion.LookRotation(move2, Vector3.up);
+
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
     }
 
     void MoveEnd()
     {
         move2 = Vector2.zero;
+        animator.SetBool("IsWalking", false);
     }
 
     void Dig() {
