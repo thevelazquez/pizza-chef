@@ -65,8 +65,8 @@ public class PlayerControl : MonoBehaviour
     {
         controls = new PlayerControls();
         //to add controls, edit PlayerControls -> add an action to Gameplay Action map -> add desired keybinds. Save asset when done.
-        controls.Gameplay.Move.performed += ctx => move2 = ctx.ReadValue<Vector2>();
-        controls.Gameplay.Move.canceled += ctx => move2 = Vector2.zero;
+        controls.Gameplay.Move.performed += ctx => Move(ctx.ReadValue<Vector2>());
+        controls.Gameplay.Move.canceled += ctx => MoveEnd();
         controls.Gameplay.Jump.performed += ctx => Jump(); //hover is set to true in Jump()
         controls.Gameplay.Jump.canceled += ctx => doHover = hovering = false;
         controls.Gameplay.Dig.performed += ctx => Dig();
@@ -87,6 +87,16 @@ public class PlayerControl : MonoBehaviour
     void ChangeOrientation(bool x=false, bool y=false, bool z=false)
     {
         orientation = new Vector3(x?orientation.x*-1:orientation.x,y?orientation.y*-1:orientation.y,z?orientation.z*-1:orientation.z);
+    }
+
+    void Move(Vector2 input)
+    {
+        move2 = input;
+    }
+
+    void MoveEnd()
+    {
+        move2 = Vector2.zero;
     }
 
     void Dig() {
