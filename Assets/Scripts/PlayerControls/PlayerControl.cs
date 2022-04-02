@@ -13,7 +13,7 @@ public class PlayerControl : MonoBehaviour
     public float jumpForce = 6f;
     public float hoverSpeed = -.5f;
     public float upSpeed;
-    public Vector3 orientation;
+    //public Vector3 orientation;
     bool doHover = false;
     bool hovering = false;
     bool canDig = false;
@@ -25,7 +25,7 @@ public class PlayerControl : MonoBehaviour
     {
         playerSpeed = defaultSpeed;
         controller = GetComponent<CharacterController>();
-        orientation = Vector3.one;
+        //orientation = Vector3.one;
     }
 
     // Update is called once per frame
@@ -35,10 +35,18 @@ public class PlayerControl : MonoBehaviour
         {
             upSpeed -= 9.81f*Time.deltaTime; //gravity
         }
-        CheckHoverable(); //checks if player can actually hover
-        Vector3 move3 = (Vector3.right * move2.x * playerSpeed * orientation.x) + (Vector3.forward * move2.y * playerSpeed * orientation.z); //move2 is a vector2 taken from player input hence y instead of z
+        //checks if player can actually hover
+        CheckHoverable(); 
+
+        //move2 is a vector2 taken from player input hence y instead of z
+        Vector3 move3 = (Camera.main.transform.right * move2.x * playerSpeed ) + (Camera.main.transform.forward * move2.y * playerSpeed ); 
+        //movement
         controller.Move(move3 * Time.deltaTime);
-        controller.Move(Vector3.up * upSpeed * Time.deltaTime * orientation.y);
+        //Jumping
+        controller.Move(Vector3.up * upSpeed * Time.deltaTime );
+        //rotate the GameObject
+        transform.eulerAngles = new Vector3(0, Camera.main.transform.eulerAngles.y ,0);
+        
     }
 
     void Jump()
@@ -85,10 +93,10 @@ public class PlayerControl : MonoBehaviour
         controls.Gameplay.Disable();
     }
 
-    void ChangeOrientation(bool x=false, bool y=false, bool z=false)
+    /*void ChangeOrientation(bool x=false, bool y=false, bool z=false)
     {
         orientation = new Vector3(x?orientation.x*-1:orientation.x,y?orientation.y*-1:orientation.y,z?orientation.z*-1:orientation.z);
-    }
+    }*/
 
     void Move(Vector2 input)
     {
