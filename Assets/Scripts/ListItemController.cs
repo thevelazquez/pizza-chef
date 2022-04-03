@@ -7,6 +7,9 @@ public class ListItemController : MonoBehaviour
 {
     public TextMeshProUGUI title;
     public TextMeshProUGUI count;
+    
+    int max = 0;
+    int current = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +22,18 @@ public class ListItemController : MonoBehaviour
         
     }
 
-    public void SetText (string name, string x) {
+    public void SetText (string name, int x) {
         title.text = name;
-        count.text = x;
+        max = x;
+        ConstructCount();
+    }
+
+    void ConstructCount() {
+        count.text = $"{current}/{max}";
+    }
+
+    public void AddToCount() {
+        current++;
+        ConstructCount();
     }
 }

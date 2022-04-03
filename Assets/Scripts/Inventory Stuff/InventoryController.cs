@@ -48,10 +48,10 @@ public class InventoryController : MonoBehaviour
 
     }
 
-    public void CreateListItem(string name, int count) {
+    void CreateListItem(string name, int count) {
         GameObject listItem = Instantiate(itemTemplate);
         listItem.transform.parent = itemList.transform;
-        listItem.GetComponent<ListItemController>().SetText(name, $"0/{count}");
+        listItem.GetComponent<ListItemController>().SetText(name, count);
         listItem.transform.localScale = new Vector3(1,1,1);
     }
 
@@ -67,6 +67,11 @@ public class InventoryController : MonoBehaviour
     }
 
     public void CollectedItem(string item) {
-        Debug.Log($"Collected: {item}");
+        foreach (Transform listItem in itemList.transform) {
+            ListItemController listItemScript = listItem.GetComponent<ListItemController>();
+            if (item == listItemScript.title.text) {
+                listItemScript.AddToCount();
+            }
+        }
     }
 }

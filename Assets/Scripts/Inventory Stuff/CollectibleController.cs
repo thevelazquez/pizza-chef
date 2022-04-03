@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class CollectibleController : MonoBehaviour
 {
     public string itemName;
-    public GameObject inventory;
+    public GameObject inventoryPanel;
     InventoryController invScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        invScript = inventory.GetComponent<InventoryController>();
+        invScript = inventoryPanel.GetComponent<InventoryController>();
         //invScript.CreateListItem(itemName);
     }
 
@@ -23,5 +24,8 @@ public class CollectibleController : MonoBehaviour
 
     void OnDisable() {
         invScript.CollectedItem(itemName);
+    }
+    void OnDrawGizmos() {
+        Handles.Label(transform.position, itemName);
     }
 }
