@@ -12,15 +12,18 @@ public class FarmerControl : MonoBehaviour
     public Transform[] patrolPoints;
     public int sightRange;
     public int fov;
+    private Animator animator;
     int pointsIndex;
     NavMeshAgent agentGuard;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         agentGuard = this.GetComponent<NavMeshAgent>();
-        agentGuard.speed = speed;
+        SpeedUp();
         SetDestination();
+        animator.SetBool("isWalking", true);
     }
 
     // Update is called once per frame
@@ -37,12 +40,16 @@ public class FarmerControl : MonoBehaviour
 
     void GoToNext()
     {
+        Debug.Log("a");
         if(patrolPoints.Length == 0)
         {
             return;
         }
         agentGuard.destination = patrolPoints[pointsIndex].position;
         pointsIndex = (pointsIndex+1)%patrolPoints.Length;
+        animator.SetBool("alert", false);
+        animator.SetBool("isWalking", false);
+        agentGuard.speed = 0;
     }
 
     void SetDestination()
@@ -52,6 +59,12 @@ public class FarmerControl : MonoBehaviour
         {
             Vector3 targetVector = target.position;
             agentGuard.SetDestination(targetVector);
+            if(animator.GetBool("alert") == false)
+            {
+                animator.SetBool("alert", true);
+                animator.SetBool("isWalking", false);
+                agentGuard.speed = 0;
+            }
         } else
         {
             if(!agentGuard.pathPending && agentGuard.remainingDistance < 0.5f)
@@ -81,5 +94,10 @@ public class FarmerControl : MonoBehaviour
             }
         }
         target = null;
+    }
+
+    public void SpeedUp()
+    {
+        agentGuard.speed = speed;
     }
 }
