@@ -45,7 +45,11 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 0f;
         isPaused = true;
-        UIScreen.SetActive(true);        
+        UIScreen.SetActive(true);
+        genScreen.SetActive(true);
+        aboutScreen.SetActive(false);
+        creditScreen.SetActive(false);
+        controlScreen.SetActive(false);
     }
     
     public void GoToMM()
@@ -63,12 +67,14 @@ public class PauseMenu : MonoBehaviour
     public void LoadControls()
     {
         Debug.Log("Show Controls");
+        aboutScreen.SetActive(false);
         controlScreen.SetActive(true);
     }
 
     public void LoadCredits()
     {
         Debug.Log("Show Credits");
+        aboutScreen.SetActive(false);
         creditScreen.SetActive(true);
     }
 
@@ -76,7 +82,7 @@ public class PauseMenu : MonoBehaviour
     {
         controlScreen.SetActive(false);
         creditScreen.SetActive(false);
-        aboutScreen.SetActive(false);
+        aboutScreen.SetActive(true);
     }
 
     public void ReturntoPause()
