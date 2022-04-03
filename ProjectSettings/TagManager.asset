@@ -7,6 +7,7 @@ TagManager:
   - Diggable
   - Fire
   - Pick Up
+  - Level mesh
   layers:
   - Default
   - TransparentFX
