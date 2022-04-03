@@ -13,10 +13,14 @@ public class PauseMenu : MonoBehaviour
     public GameObject UIScreen;
     public GameObject InventoryCanvas;
 
+    Canvas invDisplay;
+
     // Start is called before the first frame update
     void Start()
     {
         Resume();
+        invDisplay = InventoryCanvas.GetComponent<Canvas>();    
+        invDisplay.enabled = false;
     }
 
     // Update is called once per frame
@@ -33,11 +37,8 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
-
         if (Input.GetKeyDown(KeyCode.I)) 
         {
-            Canvas invDisplay = InventoryCanvas.GetComponent<Canvas>();
-            
             if (invDisplay.enabled) 
             {
                 invDisplay.enabled = false;
@@ -64,9 +65,7 @@ public class PauseMenu : MonoBehaviour
         genScreen.SetActive(true);
         aboutScreen.SetActive(false);
         creditScreen.SetActive(false);
-        controlScreen.SetActive(false);
-        
-        Cursor.lockState = CursorLockMode.None;
+        controlScreen.SetActive(false);        
     }
     
     public void GoToMM()
