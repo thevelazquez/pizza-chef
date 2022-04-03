@@ -33,11 +33,17 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
-        if (Input.GetKeyDown(KeyCode.I)) {
+
+        if (Input.GetKeyDown(KeyCode.I)) 
+        {
             Canvas invDisplay = InventoryCanvas.GetComponent<Canvas>();
-            if (invDisplay.enabled) {
+            
+            if (invDisplay.enabled) 
+            {
                 invDisplay.enabled = false;
-            } else {
+            } 
+            else 
+            {
                 invDisplay.enabled = true;
             }
         }   
@@ -59,6 +65,8 @@ public class PauseMenu : MonoBehaviour
         aboutScreen.SetActive(false);
         creditScreen.SetActive(false);
         controlScreen.SetActive(false);
+        
+        Cursor.lockState = CursorLockMode.None;
     }
     
     public void GoToMM()
