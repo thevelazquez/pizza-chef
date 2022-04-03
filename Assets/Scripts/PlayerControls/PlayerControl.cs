@@ -7,6 +7,7 @@ public class PlayerControl : MonoBehaviour
 {
     PlayerControls controls;
     CharacterController controller;
+    private Animator animator;
     Vector2 move2;
     public float defaultSpeed = 4f;
     public float rotationSpeed;
@@ -24,6 +25,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         playerSpeed = defaultSpeed;
+        animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         //orientation = Vector3.one;
     }
@@ -101,11 +103,13 @@ public class PlayerControl : MonoBehaviour
     void Move(Vector2 input)
     {
         move2 = input;
+        animator.SetBool("IsWalking", true);
     }
 
     void MoveEnd()
     {
         move2 = Vector2.zero;
+        animator.SetBool("IsWalking", false);
     }
 
     void Dig() {
