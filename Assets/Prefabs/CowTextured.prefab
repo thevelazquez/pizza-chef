@@ -749,9 +749,11 @@ GameObject:
   - component: {fileID: 588529578}
   - component: {fileID: -48087329173143591}
   - component: {fileID: 2001356975795463207}
+  - component: {fileID: 1388292799469192402}
+  - component: {fileID: 4532133464525589864}
   m_Layer: 0
   m_Name: CowTextured
-  m_TagString: Untagged
+  m_TagString: Diggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -891,6 +893,34 @@ MonoBehaviour:
   area:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
+--- !u!114 &1388292799469192402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8222933486972217708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f075299bc12bb3f44b9785aa46a2b552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: 
+  inventoryPanel: {fileID: 0}
+--- !u!136 &4532133464525589864
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8222933486972217708}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.158807
+  m_Height: 2.317614
+  m_Direction: 1
+  m_Center: {x: -0.0000000036535686, y: 0.59899354, z: -0.105843306}
 --- !u!1 &8789157986222819355
 GameObject:
   m_ObjectHideFlags: 0
