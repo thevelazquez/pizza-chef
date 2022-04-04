@@ -451,7 +451,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280290872}
-  m_LocalRotation: {x: 0.010457095, y: 0.982291, z: -0.1779404, w: 0.05772669}
+  m_LocalRotation: {x: 0.010457092, y: 0.982291, z: -0.1779404, w: 0.05772667}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1099,7 +1099,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781105152}
-  m_LocalRotation: {x: 0.010457095, y: 0.9822909, z: -0.17794043, w: 0.057726685}
+  m_LocalRotation: {x: 0.010457093, y: 0.9822909, z: -0.17794043, w: 0.057726666}
   m_LocalPosition: {x: -1.0855634, y: 5, z: -19.2826}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1386,7 +1386,7 @@ MonoBehaviour:
   cowsfx: {fileID: 8300000, guid: e4526e6c3c01a464b97f386031d2789e, type: 3}
   jumpsfx: {fileID: 8300000, guid: 4cea95a7af957a1438ff3f28e5b73e6f, type: 3}
   walksfx: {fileID: 8300000, guid: 9be52694838d3074c8b693f82687b31a, type: 3}
-  defaultSpeed: 4
+  defaultSpeed: 10
   rotationSpeed: 0
   jumpForce: 6
   hoverSpeed: -0.5
@@ -2373,7 +2373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ANGERsfx: {fileID: 8300000, guid: 8322b1833038ac04f8101acb24fe3374, type: 3}
   movingsfx: {fileID: 8300000, guid: 192128bbc340c25428144f1e1cfbc693, type: 3}
-  speed: 1
+  speed: 2
   player: {fileID: 1097130882}
   patrolPoints:
   - {fileID: 377810228}
