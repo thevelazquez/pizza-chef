@@ -5,6 +5,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerControl : MonoBehaviour
 {
+    public AudioClip digsfx;
+    public AudioClip cowsfx;
+    public AudioClip jumpsfx;
+    public AudioClip walksfx;
+
     PlayerControls controls;
     CharacterController controller;
     private Animator animator;
@@ -22,10 +27,12 @@ public class PlayerControl : MonoBehaviour
     bool canDig = false;
     float playerSpeed;
     GameObject diggableRef;
-    
+    private AudioSource source;
+
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
         playerSpeed = defaultSpeed;
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
@@ -79,6 +86,9 @@ public class PlayerControl : MonoBehaviour
             isJumping = true;
                 animator.SetBool("IsFalling", true);
         }
+        source.PlayOneShot(jumpsfx);
+
+
     }
 
     void CheckHoverable()
@@ -89,9 +99,13 @@ public class PlayerControl : MonoBehaviour
             {
                 hovering = true;
                 upSpeed = hoverSpeed;
+                source.Stop();
             }
-        }
+
+        }source.Play();
     }
+        
+    
 
     void Awake()
     {
@@ -125,6 +139,8 @@ public class PlayerControl : MonoBehaviour
     {
         move2 = input;
         animator.SetBool("IsWalking", true);
+        source.PlayOneShot(walksfx);
+
     }
 
     void MoveEnd()
@@ -138,6 +154,8 @@ public class PlayerControl : MonoBehaviour
         if (canDig) {
             diggableRef.SetActive(false);
         }
+        source.PlayOneShot(digsfx);
+
     }
 
     void OnTriggerEnter(Collider x) {
@@ -146,6 +164,15 @@ public class PlayerControl : MonoBehaviour
             diggableRef = x.gameObject;
             Debug.Log("You can dig");
         }
+        if (x.tag == "Milkable")
+        {
+            canDig = true;
+            diggableRef = x.gameObject;
+            Debug.Log("You can dig");
+            source.PlayOneShot(cowsfx);
+
+        }
+
     }
     void OnTriggerExit(Collider x) {
         if (x.tag == "Diggable") {
