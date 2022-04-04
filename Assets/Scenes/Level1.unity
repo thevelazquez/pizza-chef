@@ -346,7 +346,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278579101}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.873158, y: 5, z: -14.962654}
+  m_LocalPosition: {x: -1.0855634, y: 5, z: -19.2826}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 562351725}
@@ -451,7 +451,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280290872}
-  m_LocalRotation: {x: 0.14536846, y: -0.56942886, z: 0.103151135, w: 0.8024828}
+  m_LocalRotation: {x: 0.010457095, y: 0.982291, z: -0.1779404, w: 0.05772669}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -774,7 +774,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384449848}
-  m_LocalRotation: {x: 0.13078633, y: -0.5712065, z: 0.09280388, w: 0.8049879}
+  m_LocalRotation: {x: 0.009408123, y: 0.9853574, z: -0.16009092, w: 0.057906866}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -975,7 +975,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 562351723}
-  m_LocalRotation: {x: 0.15994117, y: -0.5674584, z: 0.113491684, w: 0.79970586}
+  m_LocalRotation: {x: 0.011505381, y: 0.9788918, z: -0.19577833, w: 0.05752692}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1099,8 +1099,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781105152}
-  m_LocalRotation: {x: 0.14536846, y: -0.5694289, z: 0.103151135, w: 0.8024827}
-  m_LocalPosition: {x: -25.873158, y: 5, z: -14.962654}
+  m_LocalRotation: {x: 0.010457095, y: 0.9822909, z: -0.17794043, w: 0.057726685}
+  m_LocalPosition: {x: -1.0855634, y: 5, z: -19.2826}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1747,7 +1747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4765c370d1f35143ad2d4bb44f9fc09, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.2
+      value: 0.32
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4765c370d1f35143ad2d4bb44f9fc09, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1755,7 +1755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4765c370d1f35143ad2d4bb44f9fc09, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11
+      value: -31.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4765c370d1f35143ad2d4bb44f9fc09, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2344,6 +2344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FarmerNPC
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5e3480737ede2c24a9d9745c7fa64880, type: 3}
+      propertyPath: m_TagString
+      value: Farmer
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 5e3480737ede2c24a9d9745c7fa64880, type: 3}
       propertyPath: m_Controller
       value: 
@@ -2498,6 +2502,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &1681605771
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681605767}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.29
+  m_Height: 2.08
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.98, z: 0}
 --- !u!1 &1748210632
 GameObject:
   m_ObjectHideFlags: 0

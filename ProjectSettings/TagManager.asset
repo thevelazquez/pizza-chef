@@ -8,11 +8,9 @@ TagManager:
   - Fire
   - Pick Up
   - Level mesh
-<<<<<<< HEAD
-  - Ground
-=======
   - Milkable
->>>>>>> d7d2f7e5397fe824a638c2db3f9c5e2ec225c044
+  - Grass
+  - Farmer
   layers:
   - Default
   - TransparentFX

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class PlayerControl : MonoBehaviour
     bool canDig = false;
     bool sneaking = false;
     public int numSneak;
+    int milks;
     float playerSpeed;
     GameObject diggableRef;
     private AudioSource source;
@@ -39,6 +41,7 @@ public class PlayerControl : MonoBehaviour
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         numSneak = 0;
+        milks = 0;
         //orientation = Vector3.one;
     }
 
@@ -179,13 +182,20 @@ public class PlayerControl : MonoBehaviour
         }
         if (x.tag == "Milkable")
         {
+            milks++;
             canDig = true;
             diggableRef = x.gameObject;
             Debug.Log("You can dig");
             source.PlayOneShot(cowsfx);
-
+            if(milks>=6)
+            {
+                SceneManager.LoadScene("WinMenu");
+            }
         }
-
+        if (x.tag == "Farmer")
+        {
+            SceneManager.LoadScene("LoseMenu");
+        }
     }
     void OnTriggerExit(Collider x) {
         if (x.tag == "Grass") {
