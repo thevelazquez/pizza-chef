@@ -8,6 +8,7 @@ TagManager:
   - Fire
   - Pick Up
   - Level mesh
+  - Milkable
   layers:
   - Default
   - TransparentFX

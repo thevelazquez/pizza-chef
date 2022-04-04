@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class FarmerControl : MonoBehaviour
 {
+    public AudioClip ANGERsfx;
+    public AudioClip movingsfx;
+
     public float speed;
     public Transform player;
     Transform target;
@@ -15,15 +18,20 @@ public class FarmerControl : MonoBehaviour
     private Animator animator;
     int pointsIndex;
     NavMeshAgent agentGuard;
+    private AudioSource source;
 
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
+
         animator = GetComponent<Animator>();
         agentGuard = this.GetComponent<NavMeshAgent>();
         SpeedUp();
         SetDestination();
-        animator.SetBool("isWalking", true);
+        animator.SetBool("isWalking", true); 
+        source.PlayOneShot(movingsfx);
+
     }
 
     // Update is called once per frame
@@ -64,6 +72,7 @@ public class FarmerControl : MonoBehaviour
                 animator.SetBool("alert", true);
                 animator.SetBool("isWalking", false);
                 agentGuard.speed = 0;
+                source.PlayOneShot(ANGERsfx);
             }
         } else
         {
@@ -99,5 +108,6 @@ public class FarmerControl : MonoBehaviour
     public void SpeedUp()
     {
         agentGuard.speed = speed;
+
     }
 }
