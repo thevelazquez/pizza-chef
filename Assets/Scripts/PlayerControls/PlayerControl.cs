@@ -19,6 +19,8 @@ public class PlayerControl : MonoBehaviour
     public float jumpForce = 6f;
     public float hoverSpeed = -.5f;
     public float upSpeed;
+    private bool isJumping;
+    private bool isGrounded;
     //public Vector3 orientation;
     bool doHover = false;
     bool hovering = false;
@@ -43,6 +45,22 @@ public class PlayerControl : MonoBehaviour
         if(!controller.isGrounded && !hovering)
         {
             upSpeed -= 9.81f*Time.deltaTime; //gravity
+            animator.SetBool("IsGrounded", true);
+            isGrounded = true;
+            animator.SetBool("IsJumping", false);
+            isJumping = false;
+            animator.SetBool("IsFalling", false);
+        }
+
+        else
+        {
+            animator.SetBool("IsGrounded", false);
+            isGrounded = false;
+
+            if ((isJumping && upSpeed < 0) || upSpeed < -6.5f)
+            {
+                animator.SetBool("IsFalling", true);
+            }
         }
         //checks if player can actually hover
         CheckHoverable(); 
@@ -64,6 +82,9 @@ public class PlayerControl : MonoBehaviour
         if (controller.isGrounded) //can only jump from ground
         {
             upSpeed = jumpForce;
+            animator.SetBool("IsJumping", true);
+            isJumping = true;
+                animator.SetBool("IsFalling", true);
         }
         source.PlayOneShot(jumpsfx);
 
