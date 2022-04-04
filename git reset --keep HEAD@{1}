@@ -1,0 +1,41 @@
+[33m27a5379[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m HEAD@{0}: pull origin main: Merge made by the 'recursive' strategy.
+[33m6bd1552[m HEAD@{1}: commit: added clicks to remaining ui menus
+[33md7d2f7e[m HEAD@{2}: commit: added click sfx to ui
+[33m205c2dd[m HEAD@{3}: pull origin main: Fast-forward
+[33mfc0bc2b[m HEAD@{4}: commit: added farmer and raffa sfx assets
+[33m482ae8d[m HEAD@{5}: commit: added cow audio assets
+[33m236b86d[m HEAD@{6}: commit: cows give milk for inventory
+[33m8dc7397[m HEAD@{7}: reset: moving to origin/main
+[33medcbb26[m HEAD@{8}: commit: cows work for milk
+[33md5ae33a[m HEAD@{9}: commit: small changes added an sfx
+[33mcd16708[m HEAD@{10}: commit: changed inventory appearance
+[33mc03b109[m HEAD@{11}: pull origin main: Fast-forward
+[33m5357789[m HEAD@{12}: reset: moving to HEAD
+[33m5357789[m HEAD@{13}: pull origin main: Fast-forward
+[33m3ddd1e8[m HEAD@{14}: commit: pause menu on l1
+[33m96cca0b[m HEAD@{15}: pull origin main: Fast-forward
+[33mef05c6b[m HEAD@{16}: commit: Added BGM to scenes
+[33m2f3ea33[m HEAD@{17}: pull origin main: Fast-forward
+[33me0331cf[m HEAD@{18}: reset: moving to HEAD
+[33me0331cf[m HEAD@{19}: commit: pause menu made, not in l1 yet
+[33mb53469c[m HEAD@{20}: commit: working on pause
+[33m1825859[m HEAD@{21}: pull origin main: Fast-forward
+[33mafcc1e4[m HEAD@{22}: pull origin main: Fast-forward
+[33mba8d03c[m HEAD@{23}: reset: moving to HEAD
+[33mba8d03c[m HEAD@{24}: commit (merge): second try for menu push
+[33m7589a98[m HEAD@{25}: commit: main menu, win/lose screens implemented
+[33m36ce49f[m HEAD@{26}: pull origin main: Merge made by the 'recursive' strategy.
+[33m4440d1b[m HEAD@{27}: commit: added empty menu scenes
+[33m163a1ad[m HEAD@{28}: checkout: moving from rotate to main
+[33mf4771d8[m[33m ([m[1;32mrotate[m[33m)[m HEAD@{29}: reset: moving to origin/main
+[33mf4771d8[m[33m ([m[1;32mrotate[m[33m)[m HEAD@{30}: pull origin main: Fast-forward
+[33ma82ba94[m HEAD@{31}: reset: moving to origin/main
+[33m2264044[m[33m ([m[1;31morigin/rotate[m[33m)[m HEAD@{32}: reset: moving to origin/rotate
+[33m2264044[m[33m ([m[1;31morigin/rotate[m[33m)[m HEAD@{33}: checkout: moving from main to rotate
+[33m163a1ad[m HEAD@{34}: reset: moving to origin/main
+[33m8785cec[m HEAD@{35}: pull origin main: Fast-forward
+[33m1731bdc[m HEAD@{36}: checkout: moving from rotate to main
+[33m2264044[m[33m ([m[1;31morigin/rotate[m[33m)[m HEAD@{37}: reset: moving to HEAD
+[33m2264044[m[33m ([m[1;31morigin/rotate[m[33m)[m HEAD@{38}: checkout: moving from main to rotate
+[33m1731bdc[m HEAD@{39}: commit: added scenes and some folders
+[33m8f4248d[m HEAD@{40}: initial pull
