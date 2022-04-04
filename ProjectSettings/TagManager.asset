@@ -8,6 +8,7 @@ TagManager:
   - Fire
   - Pick Up
   - Level mesh
+  - Ground
   layers:
   - Default
   - TransparentFX
