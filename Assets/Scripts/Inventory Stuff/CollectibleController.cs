@@ -25,7 +25,7 @@ public class CollectibleController : MonoBehaviour
     void OnDisable() {
         invScript.CollectedItem(itemName);
     }
-    void OnDrawGizmos() {
+    /* void OnDrawGizmos() {
         Handles.Label(transform.position, itemName);
-    }
+    } */
 }
