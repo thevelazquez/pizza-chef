@@ -146,7 +146,7 @@ public class PlayerControl : MonoBehaviour
     {
         move2 = input;
         animator.SetBool("IsWalking", true);
-        source.PlayOneShot(walksfx);
+        //source.PlayOneShot(walksfx);
 
     }
 
