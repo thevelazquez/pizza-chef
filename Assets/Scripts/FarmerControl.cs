@@ -10,7 +10,7 @@ public class FarmerControl : MonoBehaviour
     public AudioClip movingsfx;
 
     public float speed;
-    public Transform player;
+    public GameObject player;
     Transform target;
     public Transform[] patrolPoints;
     public int sightRange;
@@ -48,7 +48,6 @@ public class FarmerControl : MonoBehaviour
 
     void GoToNext()
     {
-        Debug.Log("a");
         if(patrolPoints.Length == 0)
         {
             return;
@@ -86,15 +85,14 @@ public class FarmerControl : MonoBehaviour
     void FindPlayer()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, (new Vector3(player.position.x,player.position.y+.3f,player.position.z) - transform.position), out hit, sightRange))
+        if (Physics.Raycast(transform.position, (new Vector3(player.transform.position.x,player.transform.position.y+.3f,player.transform.position.z) - transform.position), out hit, sightRange))
         {
             GameObject obj = hit.transform.gameObject;
             if (obj.transform.gameObject.GetComponent(typeof(PlayerControl)) != null)
             {
-                Debug.Log(Vector3.Angle(player.position-transform.position,transform.forward));
-                if(Vector3.Angle(player.position-transform.position,transform.forward)<fov)
+                if(player.GetComponent<PlayerControl>().IsSneaking() == false && Vector3.Angle(player.transform.position-transform.position,transform.forward)<fov)
                 {
-                    target = player;
+                    target = player.transform;
                     return;
                 } else
                 {

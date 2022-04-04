@@ -25,6 +25,8 @@ public class PlayerControl : MonoBehaviour
     bool doHover = false;
     bool hovering = false;
     bool canDig = false;
+    bool sneaking = false;
+    public int numSneak;
     float playerSpeed;
     GameObject diggableRef;
     private AudioSource source;
@@ -36,6 +38,7 @@ public class PlayerControl : MonoBehaviour
         playerSpeed = defaultSpeed;
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
+        numSneak = 0;
         //orientation = Vector3.one;
     }
 
@@ -78,17 +81,18 @@ public class PlayerControl : MonoBehaviour
 
     void Jump()
     {
-        doHover = true; //bool for attempting to hover; doHover automatically set as false when released jump button; 
-        if (controller.isGrounded) //can only jump from ground
+        if(!IsSneaking())
         {
-            upSpeed = jumpForce;
-            animator.SetBool("IsJumping", true);
-            isJumping = true;
-                animator.SetBool("IsFalling", true);
+            doHover = true; //bool for attempting to hover; doHover automatically set as false when released jump button; 
+            if (controller.isGrounded) //can only jump from ground
+            {
+                upSpeed = jumpForce;
+                //animator.SetBool("IsJumping", true);
+                isJumping = true;
+                //animator.SetBool("IsFalling", true);
+            }
+            source.PlayOneShot(jumpsfx);
         }
-        source.PlayOneShot(jumpsfx);
-
-
     }
 
     void CheckHoverable()
@@ -159,6 +163,15 @@ public class PlayerControl : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider x) {
+        if (x.tag == "Grass") {
+            sneaking = true;
+            if(numSneak<=0)
+            {
+                playerSpeed /= 10;
+            }
+            animator.SetBool("isSneaking",true);
+            numSneak++;
+        }
         if (x.tag == "Diggable") {
             canDig = true;
             diggableRef = x.gameObject;
@@ -175,10 +188,30 @@ public class PlayerControl : MonoBehaviour
 
     }
     void OnTriggerExit(Collider x) {
+        if (x.tag == "Grass") {
+            numSneak--;
+            if(numSneak<=0)
+            {
+                sneaking = false;
+                playerSpeed /= 10;
+                animator.SetBool("isSneaking",false);
+            }
+            
+        }
         if (x.tag == "Diggable") {
             canDig = false;
             diggableRef = null;
             Debug.Log("You can't dig");
         }
+    }
+
+    public bool IsSneaking()
+    {
+        return sneaking;
+    }
+
+    public void SpeedUp()
+    {
+        playerSpeed = defaultSpeed;
     }
 }
