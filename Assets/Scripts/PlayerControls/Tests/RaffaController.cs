@@ -4,132 +4,119 @@ using UnityEngine;
 
 public class RaffaController : MonoBehaviour
 {
-    PlayerControls controls;
-    public CharacterController controller;
-    private Animator animator;
-    public Transform cam;
-    Vector2 move2;
-    public float defaultSpeed = 4f;
+    [SerializeField]
+    public float maximumSpeed;
+
+    [SerializeField]
     public float rotationSpeed;
-    public float jumpForce = 6f;
-    public float hoverSpeed = -.5f;
-    public float upSpeed;
-    public Vector3 orientation;
-    bool doHover = false;
-    bool hovering = false;
-    bool canDig = false;
-    float playerSpeed;
-    GameObject diggableRef;
+
+    [SerializeField]
+    public float jumpSpeed;
+
+    [SerializeField]
+    public float jumpButtonGracePeriod;
+
+    [SerializeField]
+    private Transform cameraTransform;
+
+    private Animator animator;
+    private CharacterController characterController;
+    private float ySpeed;
+    private float originalStepOffset;
+    private float? lastGroundedTime;
+    private float? jumpButtonPressedTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerSpeed = defaultSpeed;
         animator = GetComponent<Animator>();
-        controller = GetComponent<CharacterController>();
-        orientation = Vector3.one;
+        characterController = GetComponent<CharacterController>();
+        originalStepOffset = characterController.stepOffset;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if(!controller.isGrounded && !hovering)
-        {
-            upSpeed -= 9.81f*Time.deltaTime; //gravity
-        }
-        CheckHoverable(); //checks if player can actually hover
-        Vector3 move3 = (Vector3.right * move2.x * playerSpeed * orientation.x) + (Vector3.forward * move2.y * playerSpeed * orientation.z); //move2 is a vector2 taken from player input hence y instead of z
-        controller.Move(move3 * Time.deltaTime);
-        controller.Move(Vector3.up * upSpeed * Time.deltaTime * orientation.y);
-    }
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
-    void Jump()
-    {
-        doHover = true; //bool for attempting to hover; doHover automatically set as false when released jump button; 
-        if (controller.isGrounded) //can only jump from ground
+        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
+        float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
+        
+        if (Input.GetKey(KeyCode.LeftShift) == false && Input.GetKey(KeyCode.RightShift) == false)
         {
-            upSpeed = jumpForce;
+            inputMagnitude /= 2;
         }
-    }
 
-    void CheckHoverable()
-    {
-        if (doHover)
+        animator.SetFloat("Speed", inputMagnitude, 0.05f, Time.deltaTime);
+        float speed = inputMagnitude * maximumSpeed;
+        movementDirection = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up) * movementDirection;
+        movementDirection.Normalize();
+
+        ySpeed += Physics.gravity.y * Time.deltaTime;
+
+        if (characterController.isGrounded)
         {
-            if (!controller.isGrounded && upSpeed <= 0) //is in air and past apex of jump height
+            lastGroundedTime = Time.time;
+        }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            jumpButtonPressedTime = Time.time;
+        }
+
+        if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
+        {
+            characterController.stepOffset = originalStepOffset;
+            ySpeed = -0.5f;
+
+            if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
             {
-                hovering = true;
-                upSpeed = hoverSpeed;
-            }
-        }
-    }
-
-    void Awake()
-    {
-        controls = new PlayerControls();
-        //to add controls, edit PlayerControls -> add an action to Gameplay Action map -> add desired keybinds. Save asset when done.
-        controls.Gameplay.Move.performed += ctx => Move(ctx.ReadValue<Vector2>());
-        controls.Gameplay.Move.canceled += ctx => MoveEnd();
-        controls.Gameplay.Jump.performed += ctx => Jump(); //hover is set to true in Jump()
-        controls.Gameplay.Jump.canceled += ctx => doHover = hovering = false;
-        controls.Gameplay.Dig.performed += ctx => Dig();
-    }
-
-    //Use this to enable player input
-    void OnEnable()
-    {
-        controls.Gameplay.Enable();
-    }
-
-    //Use this to disable player input
-    void OnDisable()
-    {
-        controls.Gameplay.Disable();
-    }
-
-    void ChangeOrientation(bool x=false, bool y=false, bool z=false)
-    {
-        orientation = new Vector3(x?orientation.x*-1:orientation.x,y?orientation.y*-1:orientation.y,z?orientation.z*-1:orientation.z);
-    }
-
-    void Move(Vector2 input)
-    {
-        move2 = input;
-        animator.SetBool("IsWalking", true);
-    }
-
-    void MoveEnd()
-    {
-        move2 = Vector2.zero;
-        animator.SetBool("IsWalking", false);
-    }
-
-        void Dig() 
-        {
-            Debug.Log("dig");
-            if (canDig)
-            {
-                diggableRef.SetActive(false);
+                ySpeed = jumpSpeed;
+                jumpButtonPressedTime = null;
+                lastGroundedTime = null;
             }
         }
 
-        void OnTriggerEnter(Collider x)
+        else
         {
-            if (x.tag == "Diggable")
-            {
-                canDig = true;
-                diggableRef = x.gameObject;
-                Debug.Log("You can dig");
-            }
+            characterController.stepOffset = 0;
         }
 
-        void OnTriggerExit(Collider x) 
+        Vector3 velocity = movementDirection * speed;
+        velocity.y = ySpeed;
+
+        characterController.Move(velocity * Time.deltaTime);
+
+        if (movementDirection != Vector3.zero)
         {
-            if (x.tag == "Diggable")
-            {
-                canDig = false;
-                diggableRef = null;
-                Debug.Log("You can't dig");
-            }
+            animator.SetBool("IsMoving", true);
+            Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
+
+        else
+        {
+            animator.SetBool("IsMoving", false);
+        }
+
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
         }
     }
+
+    private void OnApplicationFocus(bool focus)
+    {
+        if (focus)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }
+}
