@@ -122,7 +122,7 @@ public class PlayerControl : MonoBehaviour
         controls.Gameplay.Move.canceled += ctx => MoveEnd();
         controls.Gameplay.Jump.performed += ctx => Jump(); //hover is set to true in Jump()
         controls.Gameplay.Jump.canceled += ctx => doHover = hovering = false;
-        controls.Gameplay.Dig.performed += ctx => Dig();
+        //controls.Gameplay.Dig.performed += ctx => Dig();
     }
 
     //Use this to enable player input
@@ -162,7 +162,6 @@ public class PlayerControl : MonoBehaviour
             diggableRef.SetActive(false);
         }
         source.PlayOneShot(digsfx);
-
     }
 
     void OnTriggerEnter(Collider x) {

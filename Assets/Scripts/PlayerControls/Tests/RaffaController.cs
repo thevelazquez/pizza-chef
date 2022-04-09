@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RaffaController : MonoBehaviour
 {
@@ -24,12 +25,18 @@ public class RaffaController : MonoBehaviour
 
     private Animator animator;
     private CharacterController characterController;
+    private PlayerControls controls;
+    private Vector2 move;
+    private GameObject diggableRef;
     private float ySpeed;
     private float originalStepOffset;
     private float? lastGroundedTime;
     private float? jumpButtonPressedTime;
+    private bool isRunning = false;
+    private bool isHovering = false;
     private bool isJumping;
     private bool isGrounded;
+    private bool canDig = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,35 +46,72 @@ public class RaffaController : MonoBehaviour
         originalStepOffset = characterController.stepOffset;
     }
 
-    // Update is called once per frame
-    void Update()
+    void Awake()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        controls = new PlayerControls();
+        //to add controls, edit PlayerControls -> add an action to Gameplay Action map -> add desired keybinds. Save asset when done.
+        controls.Gameplay.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
+        controls.Gameplay.Move.canceled += ctx => move = Vector2.zero;
+        controls.Gameplay.Sprint.performed += ctx => isRunning = true;
+        controls.Gameplay.Sprint.canceled += ctx => isRunning = false;
+        controls.Gameplay.Jump.performed += ctx => Jump();
+        controls.Gameplay.Jump.canceled += ctx => isHovering = false;
+        controls.Gameplay.Interact.performed += ctx => Interact();
+        controls.Gameplay.Attack.performed += ctx => Attack();
+        controls.Gameplay.Block.performed += ctx => Block();
+    }
 
-        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
+    void Interact()
+    {
+        if (canDig) {
+            diggableRef.SetActive(false);
+        }
+    }
+
+    void Jump()
+    {
+        jumpButtonPressedTime = Time.time;
+        isHovering = true;
+    }
+
+    //Use this to enable player input
+    void OnEnable()
+    {
+        controls.Gameplay.Enable();
+    }
+
+    //Use this to disable player input
+    void OnDisable()
+    {
+        controls.Gameplay.Disable();
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        Vector3 movementDirection = new Vector3(move.x, 0, move.y);
         float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
-        
-        if (Input.GetKey(KeyCode.LeftShift) == false && Input.GetKey(KeyCode.RightShift) == false)
+        if (isRunning)
         {
-            inputMagnitude /= 2;
+            inputMagnitude *= 2;
         }
 
         animator.SetFloat("Speed", inputMagnitude, 0.05f, Time.deltaTime);
         float speed = inputMagnitude * maximumSpeed;
         movementDirection = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up) * movementDirection;
         movementDirection.Normalize();
-
-        ySpeed += Physics.gravity.y * Time.deltaTime;
+        
+        if(isHovering && ySpeed < 0)
+        {
+            ySpeed = -hoverSpeed;
+        } else 
+        {
+            ySpeed += Physics.gravity.y * Time.deltaTime;
+        }
 
         if (characterController.isGrounded)
         {
             lastGroundedTime = Time.time;
-        }
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            jumpButtonPressedTime = Time.time;
         }
 
         if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
@@ -120,22 +164,22 @@ public class RaffaController : MonoBehaviour
             animator.SetBool("IsMoving", false);
         }
 
-        if (Input.GetButtonDown("Fire1"))
-        {
-            animator.SetLayerWeight(animator.GetLayerIndex("Combat Layer"), 1);
-            animator.SetTrigger("Attack");
-        }
-
-        if (Input.GetButtonDown("Fire2"))
-        {
-            animator.SetLayerWeight(animator.GetLayerIndex("Combat Layer"), 1);
-            animator.SetTrigger("Defend");
-        }
-
         if (Input.GetKey("escape"))
         {
             Application.Quit();
         }
+    }
+
+    void Attack()
+    {
+        animator.SetLayerWeight(animator.GetLayerIndex("Combat Layer"), 1);
+        animator.SetTrigger("Attack");
+    }
+
+    void Block()
+    {
+        animator.SetLayerWeight(animator.GetLayerIndex("Combat Layer"), 1);
+        animator.SetTrigger("Defend");
     }
 
     private void OnApplicationFocus(bool focus)
@@ -148,6 +192,26 @@ public class RaffaController : MonoBehaviour
         else
         {
             Cursor.lockState = CursorLockMode.None;
+        }
+    }
+
+    void OnTriggerEnter(Collider x) {
+        if (x.tag == "Diggable") {
+            canDig = true;
+            diggableRef = x.gameObject;
+            Debug.Log("You can dig");
+        }
+        if (x.tag == "Farmer")
+        {
+            SceneManager.LoadScene("LoseMenu");
+        }
+    }
+
+    void OnTriggerExit(Collider x) {
+        if (x.tag == "Diggable") {
+            canDig = false;
+            diggableRef = null;
+            Debug.Log("You can't dig");
         }
     }
 }
