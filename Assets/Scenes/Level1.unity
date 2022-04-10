@@ -1657,28 +1657,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e4765c370d1f35143ad2d4bb44f9fc09, type: 3}
   m_PrefabInstance: {fileID: 1358755749}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1097130883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097130882}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce15d14fd31b8934d9e155a52267b3e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  digsfx: {fileID: 8300000, guid: b3f5c5de5f16b004990bbe53bf3a8f8b, type: 3}
-  cowsfx: {fileID: 8300000, guid: e4526e6c3c01a464b97f386031d2789e, type: 3}
-  jumpsfx: {fileID: 8300000, guid: 4cea95a7af957a1438ff3f28e5b73e6f, type: 3}
-  walksfx: {fileID: 8300000, guid: 9be52694838d3074c8b693f82687b31a, type: 3}
-  defaultSpeed: 10
-  rotationSpeed: 0
-  jumpForce: 6
-  hoverSpeed: -0.5
-  upSpeed: 0
-  numSneak: 0
 --- !u!114 &1097130884
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -219,10 +219,18 @@ public class RaffaController : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider x) {
+        /* EXAMPLE CODE
+        verify tag, if you can interact with it set canDig to true.
+        set diggableRef to the object you just collided with - this is a temporary reference
+
         if (x.tag == "Diggable") {
             canDig = true;
             diggableRef = x.gameObject;
             Debug.Log("You can dig");
+        }*/
+        if (x.tag == "Milkable") {
+            canDig = true;
+            diggableRef = x.gameObject;
         }
         if (x.tag == "Sneak") {
             sneaks++;
@@ -234,10 +242,18 @@ public class RaffaController : MonoBehaviour
     }
 
     void OnTriggerExit(Collider x) {
+        /*EXAMPLE CODE
+        Set canDig to false and nullify the diggableRef variable as you have just left
+        the interactible area
+
         if (x.tag == "Diggable") {
             canDig = false;
             diggableRef = null;
             Debug.Log("You can't dig");
+        }*/
+        if (x.tag == "Milkable") {
+            canDig = false;
+            diggableRef = null;
         }
         if (x.tag == "Sneak") {
             sneaks--;

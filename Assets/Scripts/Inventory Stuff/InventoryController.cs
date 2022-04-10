@@ -66,6 +66,7 @@ public class InventoryController : MonoBehaviour
         }
     }
 
+    //called from a gameobject after it is deactivated from the Collectibles empty
     public void CollectedItem(string item) {
         foreach (Transform listItem in itemList.transform) {
             ListItemController listItemScript = listItem.GetComponent<ListItemController>();
