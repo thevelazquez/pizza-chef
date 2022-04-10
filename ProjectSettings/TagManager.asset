@@ -9,8 +9,8 @@ TagManager:
   - Pick Up
   - Level mesh
   - Milkable
-  - Grass
   - Farmer
+  - Sneak
   layers:
   - Default
   - TransparentFX

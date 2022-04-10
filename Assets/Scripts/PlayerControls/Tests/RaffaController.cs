@@ -15,6 +15,9 @@ public class RaffaController : MonoBehaviour
     public float jumpSpeed;
 
     [SerializeField]
+    public float sneakSpeed;
+
+    [SerializeField]
     public float hoverSpeed;
 
     [SerializeField]
@@ -32,11 +35,13 @@ public class RaffaController : MonoBehaviour
     private float originalStepOffset;
     private float? lastGroundedTime;
     private float? jumpButtonPressedTime;
-    private bool isRunning = false;
-    private bool isHovering = false;
+    private int sneaks = 0;
+    private bool isRunning;
+    private bool isHovering;
     private bool isJumping;
     private bool isGrounded;
-    private bool canDig = false;
+    private bool isSneaking;
+    private bool canDig;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +64,7 @@ public class RaffaController : MonoBehaviour
         controls.Gameplay.Interact.performed += ctx => Interact();
         controls.Gameplay.Attack.performed += ctx => Attack();
         controls.Gameplay.Block.performed += ctx => Block();
+        controls.Gameplay.Sneak.performed += ctx => Sneak();
     }
 
     void Interact()
@@ -66,6 +72,17 @@ public class RaffaController : MonoBehaviour
         if (canDig) {
             diggableRef.SetActive(false);
         }
+    }
+
+    void Sneak()
+    {
+        //add animator cue
+        isSneaking = !isSneaking;
+    }
+
+    public bool IsSneaking()
+    {
+        return (sneaks>0)?isSneaking:false;
     }
 
     void Jump()
@@ -97,7 +114,13 @@ public class RaffaController : MonoBehaviour
         }
 
         animator.SetFloat("Speed", inputMagnitude, 0.05f, Time.deltaTime);
+
         float speed = inputMagnitude * maximumSpeed;
+        if (isSneaking)
+        {
+            speed = sneakSpeed;
+        }
+
         movementDirection = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up) * movementDirection;
         movementDirection.Normalize();
         
@@ -201,6 +224,9 @@ public class RaffaController : MonoBehaviour
             diggableRef = x.gameObject;
             Debug.Log("You can dig");
         }
+        if (x.tag == "Sneak") {
+            sneaks++;
+        }
         if (x.tag == "Farmer")
         {
             SceneManager.LoadScene("LoseMenu");
@@ -212,6 +238,9 @@ public class RaffaController : MonoBehaviour
             canDig = false;
             diggableRef = null;
             Debug.Log("You can't dig");
+        }
+        if (x.tag == "Sneak") {
+            sneaks--;
         }
     }
 }
