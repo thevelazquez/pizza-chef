@@ -78,6 +78,24 @@ public class RaffaController : MonoBehaviour
     {
         //add animator cue
         isSneaking = !isSneaking;
+
+        if (isSneaking == true)
+        {
+            animator.SetBool("IsSneaking", true);
+            if (sneakSpeed >= 0)
+            {
+                animator.SetBool("IsMoving", true);
+            }
+        }
+        
+        if (isSneaking == false)
+        {
+            animator.SetBool("IsSneaking", false);
+            if (sneakSpeed <= 0)
+            {
+                animator.SetBool("IsMoving", false);
+            }
+        }
     }
 
     public bool IsSneaking()
