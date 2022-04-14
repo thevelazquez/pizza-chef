@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 5e3480737ede2c24a9d9745c7fa64880
+guid: 6c5e552feedf3d4409761766e1069eb0
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Farmer_idle
+    second: Standing Melee Kick
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Farmer_idle
+      name: Standing Melee Kick
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 250
+      lastFrame: 43
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -104,9 +104,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 88b8949500f93d846a51b7c16374aa6b
-  - 6c5e552feedf3d4409761766e1069eb0
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
@@ -128,7 +126,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
