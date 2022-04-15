@@ -42,10 +42,12 @@ public class PauseMenu : MonoBehaviour
             if (invDisplay.enabled) 
             {
                 invDisplay.enabled = false;
+                HideCursor();
             } 
             else 
             {
                 invDisplay.enabled = true;
+                ActivateCursor();
             }
         }   
     }
@@ -55,6 +57,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         UIScreen.SetActive(false);
+        HideCursor();
     }
 
     public void Pause()
@@ -65,7 +68,20 @@ public class PauseMenu : MonoBehaviour
         genScreen.SetActive(true);
         aboutScreen.SetActive(false);
         creditScreen.SetActive(false);
-        controlScreen.SetActive(false);        
+        controlScreen.SetActive(false);
+        ActivateCursor();    
+    }
+
+    public void ActivateCursor()
+    {   
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true; 
+    }
+
+    public void HideCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     
     public void GoToMM()
