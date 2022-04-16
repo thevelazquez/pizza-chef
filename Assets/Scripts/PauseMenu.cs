@@ -5,22 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-   /* public static bool isPaused = false;
+    public static bool isPaused = false;
     public GameObject aboutScreen;
     public GameObject creditScreen;
     public GameObject controlScreen;
     public GameObject genScreen;
     public GameObject UIScreen;
-    public GameObject InventoryCanvas;
-
-    Canvas invDisplay;
 
     // Start is called before the first frame update
     void Start()
     {
         Resume();
-        invDisplay = InventoryCanvas.GetComponent<Canvas>();    
-        invDisplay.enabled = false;
     }
 
     // Update is called once per frame
@@ -39,14 +34,12 @@ public class PauseMenu : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.I)) 
         {
-            if (invDisplay.enabled) 
+            if (isPaused) ///placeholder script while waiting for inventory condition 
             {
-                invDisplay.enabled = false;
                 HideCursor();
             } 
             else 
             {
-                invDisplay.enabled = true;
                 ActivateCursor();
             }
         }   
@@ -128,5 +121,4 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Quit Game");
         Application.Quit();
     }
-   */
 }
