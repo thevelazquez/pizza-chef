@@ -30,7 +30,7 @@ public class RaffaController : MonoBehaviour
     private CharacterController characterController;
     private PlayerControls controls;
     private Vector2 move;
-    private GameObject diggableRef;
+    private GameObject interactiveRef;
     private float ySpeed;
     private float originalStepOffset;
     private float? lastGroundedTime;
@@ -69,8 +69,14 @@ public class RaffaController : MonoBehaviour
 
     void Interact()
     {
+        if (interactiveRef == null) {
+            return;
+        }
         if (canDig) {
-            diggableRef.SetActive(false);
+            interactiveRef.SetActive(false);
+        }
+        if (interactiveRef.tag == "Teleporter") {
+            interactiveRef.GetComponent<TPScript>().changeScene();
         }
     }
 
@@ -239,16 +245,20 @@ public class RaffaController : MonoBehaviour
     void OnTriggerEnter(Collider x) {
         /* EXAMPLE CODE
         verify tag, if you can interact with it set canDig to true.
-        set diggableRef to the object you just collided with - this is a temporary reference
+        set interactiveRef to the object you just collided with - this is a temporary reference
 
         if (x.tag == "Diggable") {
             canDig = true;
-            diggableRef = x.gameObject;
+            interactiveRef = x.gameObject;
             Debug.Log("You can dig");
         }*/
+        Debug.Log(x.tag);
         if (x.tag == "Milkable") {
             canDig = true;
-            diggableRef = x.gameObject;
+            interactiveRef = x.gameObject;
+        }
+        if (x.tag == "Teleporter") {
+            interactiveRef = x.gameObject;
         }
         if (x.tag == "Sneak") {
             sneaks++;
@@ -261,17 +271,20 @@ public class RaffaController : MonoBehaviour
 
     void OnTriggerExit(Collider x) {
         /*EXAMPLE CODE
-        Set canDig to false and nullify the diggableRef variable as you have just left
+        Set canDig to false and nullify the interactiveRef variable as you have just left
         the interactible area
 
         if (x.tag == "Diggable") {
             canDig = false;
-            diggableRef = null;
+            interactiveRef = null;
             Debug.Log("You can't dig");
         }*/
         if (x.tag == "Milkable") {
             canDig = false;
-            diggableRef = null;
+            interactiveRef = null;
+        }
+        if (x.tag == "Teleporter") {
+            interactiveRef = null;
         }
         if (x.tag == "Sneak") {
             sneaks--;

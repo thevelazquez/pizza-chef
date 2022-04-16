@@ -11,6 +11,8 @@ TagManager:
   - Milkable
   - Farmer
   - Sneak
+  - Teleporter
+  - Grass
   layers:
   - Default
   - TransparentFX
