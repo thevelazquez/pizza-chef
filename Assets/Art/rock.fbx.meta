@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: steontexture
-    second: {fileID: 2800000, guid: 327ba8bbb84a30246a6c635da14863e2, type: 3}
+    second: {fileID: 2800000, guid: 5e66667e5d9df234d8307e131d392d6c, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
