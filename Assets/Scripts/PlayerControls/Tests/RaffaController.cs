@@ -37,11 +37,13 @@ public class RaffaController : MonoBehaviour
     private float? jumpButtonPressedTime;
     private int sneaks = 0;
     private bool isRunning;
+    public bool isAttacking = false;
     private bool isHovering;
     private bool isJumping;
     private bool isGrounded;
     private bool isSneaking;
     private bool canDig;
+    public AudioClip SwingSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -227,8 +229,14 @@ public class RaffaController : MonoBehaviour
 
     void Attack()
     {
+        isAttacking = true;
         animator.SetLayerWeight(animator.GetLayerIndex("Combat Layer"), 1);
         animator.SetTrigger("Attack");
+        AudioSource ac = GetComponent<AudioSource>();
+        ac.PlayOneShot(SwingSFX);
+        StartCoroutine(SwingCooldown());
+
+
     }
 
     void Block()
@@ -314,5 +322,18 @@ public class RaffaController : MonoBehaviour
         {
             
         }
+    }
+    IEnumerator SwingCooldown()
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(2);
+
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+        isAttacking = false;
+
     }
 }

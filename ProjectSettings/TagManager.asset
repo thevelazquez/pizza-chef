@@ -15,6 +15,7 @@ TagManager:
   - Grass
   - Father
   - Goddess
+  - Enemy
   layers:
   - Default
   - TransparentFX
