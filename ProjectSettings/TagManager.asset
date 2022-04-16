@@ -13,6 +13,8 @@ TagManager:
   - Sneak
   - Teleporter
   - Grass
+  - Father
+  - Goddess
   layers:
   - Default
   - TransparentFX

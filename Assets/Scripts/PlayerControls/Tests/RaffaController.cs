@@ -78,6 +78,14 @@ public class RaffaController : MonoBehaviour
         if (interactiveRef.tag == "Teleporter") {
             interactiveRef.GetComponent<TPScript>().changeScene();
         }
+        if (interactiveRef.tag == "Father")
+        {
+            FindObjectOfType<DialogueManager>().DisplayNextSentence();
+        }
+        if (interactiveRef.tag == "Goddess")
+        {
+            
+        }
     }
 
     void Sneak()
@@ -267,6 +275,15 @@ public class RaffaController : MonoBehaviour
         {
             SceneManager.LoadScene("LoseMenu");
         }
+        if (x.tag == "Father")
+        {
+            FindObjectOfType<DialogueTrigger>().TriggerDialogue();
+            interactiveRef = x.gameObject;
+        }
+        if (x.tag == "Goddess")
+        {
+            interactiveRef = x.gameObject;
+        }
     }
 
     void OnTriggerExit(Collider x) {
@@ -288,6 +305,14 @@ public class RaffaController : MonoBehaviour
         }
         if (x.tag == "Sneak") {
             sneaks--;
+        }
+        if (x.tag == "Father")
+        {
+            FindObjectOfType<DialogueManager>().EndDialogue();
+        }
+        if (x.tag == "Goddess")
+        {
+            
         }
     }
 }
