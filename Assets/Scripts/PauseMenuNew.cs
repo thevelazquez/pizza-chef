@@ -3,24 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenuNew : MonoBehaviour
 {
-   /* public static bool isPaused = false;
+    public static bool isPaused = false;
     public GameObject aboutScreen;
     public GameObject creditScreen;
     public GameObject controlScreen;
     public GameObject genScreen;
     public GameObject UIScreen;
-    public GameObject InventoryCanvas;
+    public GameObject InvScreen;
 
-    Canvas invDisplay;
+    public GameObject Menu;
+
+    Canvas MenuCanvas;
 
     // Start is called before the first frame update
     void Start()
     {
         Resume();
-        invDisplay = InventoryCanvas.GetComponent<Canvas>();    
-        invDisplay.enabled = false;
+        MenuCanvas = Menu.GetComponent<Canvas>();
+        // invDisplay.enabled = false; 
     }
 
     // Update is called once per frame
@@ -30,26 +32,46 @@ public class PauseMenu : MonoBehaviour
         {
             if (isPaused)
             {
+                UIScreen.SetActive(false);
+                HideCursor();
                 Resume();
             }
             else
             {
+                UIScreen.SetActive(true);
+                InvScreen.SetActive(false);
+                ActivateCursor();
                 Pause();
             }
         }
-        if (Input.GetKeyDown(KeyCode.I)) 
+        else if (Input.GetKeyDown(KeyCode.I))
         {
-            if (invDisplay.enabled) 
+            if (isPaused)
             {
-                invDisplay.enabled = false;
+                InvScreen.SetActive(false);
                 HideCursor();
-            } 
-            else 
-            {
-                invDisplay.enabled = true;
-                ActivateCursor();
+                Resume();
             }
-        }   
+            else
+            {
+                InvScreen.SetActive(true);
+                UIScreen.SetActive(false);
+                ActivateCursor();
+                Pause();
+            }
+            /* if (invDisplay.enabled) 
+             {
+                 invDisplay.enabled = false;
+                 HideCursor();
+
+             }
+             else 
+             {
+                 invDisplay.enabled = true;
+                 ActivateCursor();
+             }
+            */
+        }
     }
 
     public void Resume()
@@ -64,18 +86,18 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 0f;
         isPaused = true;
-        UIScreen.SetActive(true);
-        genScreen.SetActive(true);
+       /* UIScreen.SetActive(true);
+        genScreen.SetActive(true);*/
         aboutScreen.SetActive(false);
         creditScreen.SetActive(false);
         controlScreen.SetActive(false);
-        ActivateCursor();    
+        ActivateCursor();
     }
 
     public void ActivateCursor()
-    {   
+    {
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true; 
+        Cursor.visible = true;
     }
 
     public void HideCursor()
@@ -83,7 +105,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-    
+
     public void GoToMM()
     {
         SceneManager.LoadScene("MainMenu");
@@ -128,5 +150,4 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Quit Game");
         Application.Quit();
     }
-   */
 }
