@@ -5,7 +5,7 @@ using UnityEngine;
 public class CollisionDetection : MonoBehaviour
 {
     public RaffaController rfc;
- //   public GameObject HitParticle;
+ public GameObject HitParticle;
 
     
 
@@ -16,7 +16,7 @@ public class CollisionDetection : MonoBehaviour
             Debug.Log(other.name);
             other.GetComponent<Animator>().SetTrigger("hit");
             StartCoroutine(EnemyFade());
-            // Instantiate(HitParticle, new Vector3(other.transform.position.x,transform.position.y,other.transform.position.z), other.transform.rotation);
+          Instantiate(HitParticle, new Vector3(other.transform.position.x,transform.position.y,other.transform.position.z), other.transform.rotation);
         }
 
 
