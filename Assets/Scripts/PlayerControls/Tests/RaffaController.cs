@@ -42,7 +42,7 @@ public class RaffaController : MonoBehaviour
     private bool isJumping;
     private bool isGrounded;
     private bool isSneaking;
-    private bool canDig;
+    private bool canCollect;
     public AudioClip SwingSFX;
 
     // Start is called before the first frame update
@@ -74,7 +74,7 @@ public class RaffaController : MonoBehaviour
         if (interactiveRef == null) {
             return;
         }
-        if (canDig) {
+        if (canCollect) {
             interactiveRef.SetActive(false);
         }
         if (interactiveRef.tag == "Teleporter") {
@@ -255,21 +255,38 @@ public class RaffaController : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider x) {
-        /* EXAMPLE CODE
-        verify tag, if you can interact with it set canDig to true.
-        set interactiveRef to the object you just collided with - this is a temporary reference
-
-        if (x.tag == "Diggable") {
-            canDig = true;
-            interactiveRef = x.gameObject;
-            Debug.Log("You can dig");
-        }*/
-        Debug.Log(x.tag);
+        switch (x.tag) {
+            case "Collectible":
+                canCollect = true;
+                interactiveRef = x.gameObject;
+                break;
+            case "Milkable":
+                canCollect = true;
+                interactiveRef = x.gameObject;
+                break;
+            case "Teleporter":
+                interactiveRef = x.gameObject;
+                interactiveRef.GetComponent<DialogueTrigger>().TriggerDialogue();
+                break;
+            case "Sneak":
+                sneaks++;
+                break;
+            case "Farmer":
+                SceneManager.LoadScene("LoseMenu");
+                break;
+            case "NPC":
+                interactiveRef = x.gameObject;
+                interactiveRef.GetComponent<DialogueTrigger>().TriggerDialogue();
+                break;
+            default:
+                Debug.Log(x.tag);
+                break;
+        }/*
         if (x.tag == "Milkable") {
-            canDig = true;
+            canCollect = true;
             interactiveRef = x.gameObject;
         }
-         if (x.tag == "Teleporter") {
+        if (x.tag == "Teleporter") {
             interactiveRef = x.gameObject;
             interactiveRef.GetComponent<DialogueTrigger>().TriggerDialogue();
         }
@@ -284,21 +301,28 @@ public class RaffaController : MonoBehaviour
         {
             interactiveRef = x.gameObject;
             interactiveRef.GetComponent<DialogueTrigger>().TriggerDialogue();
-        }
+        }*/
     }
 
     void OnTriggerExit(Collider x) {
-        /*EXAMPLE CODE
-        Set canDig to false and nullify the interactiveRef variable as you have just left
-        the interactible area
-
-        if (x.tag == "Diggable") {
-            canDig = false;
-            interactiveRef = null;
-            Debug.Log("You can't dig");
-        }*/
+        switch (x.tag) {
+            case "Sneak":
+                sneaks--;
+                break;
+            case "NPC":
+                FindObjectOfType<DialogueManager>().EndDialogue();
+                break;
+            case "Teleporter":
+                FindObjectOfType<DialogueManager>().EndDialogue();
+                interactiveRef = null;
+                break;
+            default:
+                canCollect = false;
+                interactiveRef = null;
+                break;
+        }/*
         if (x.tag == "Milkable") {
-            canDig = false;
+            canCollect = false;
             interactiveRef = null;
         }
         if (x.tag == "Teleporter") {
@@ -310,7 +334,7 @@ public class RaffaController : MonoBehaviour
         if (x.tag == "NPC")
         {
             FindObjectOfType<DialogueManager>().EndDialogue();
-        }
+        }*/
     }
     IEnumerator SwingCooldown()
     {
