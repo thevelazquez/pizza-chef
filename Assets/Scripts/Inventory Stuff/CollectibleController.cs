@@ -6,14 +6,14 @@ using UnityEditor;
 public class CollectibleController : MonoBehaviour
 {
     public string itemName;
-    public GameObject inventoryPanel;
+    //public GameObject inventoryPanel;
     InventoryController invScript;
     public GameObject HitParticle;
 
     // Start is called before the first frame update
     void Start()
     {
-        invScript = inventoryPanel.GetComponent<InventoryController>();
+        invScript = FindObjectOfType<InventoryController>();
         //invScript.CreateListItem(itemName);
     }
 

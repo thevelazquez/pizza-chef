@@ -104,4 +104,12 @@ public class InventoryController : MonoBehaviour
         RefreshItemList();
     }
 
+    public void RemoveItem(string item) {
+        if (!items.Remove(item)) {
+            Debug.Log($"<{item}> was not found in the inventory");
+            return;
+        }
+        RefreshItemList();
+    }
+
 }

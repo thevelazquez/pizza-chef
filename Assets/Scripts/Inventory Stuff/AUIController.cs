@@ -18,12 +18,24 @@ public class AUIController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I)) {
             if (AUICanvas.enabled) {
                 AUICanvas.enabled = false;
+                HideCursor();
             } else {
                 AUICanvas.enabled = true;
+                ActivateCursor();
             }
         }
         if (PauseMenuNew.isPaused) {
             AUICanvas.enabled = false;
         }
+    }
+
+    void ActivateCursor() {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    void HideCursor() {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

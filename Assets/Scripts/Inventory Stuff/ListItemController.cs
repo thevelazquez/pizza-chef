@@ -7,13 +7,15 @@ public class ListItemController : MonoBehaviour
 {
     public TextMeshProUGUI title;
     public TextMeshProUGUI countTxt;
+
+    InventoryController inventory;
     
     int quantity = 0;
     //int current = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        inventory = transform.parent.parent.gameObject.GetComponent<InventoryController>();
     }
 
     // Update is called once per frame
@@ -36,7 +38,7 @@ public class ListItemController : MonoBehaviour
         quantity++;
         ConstructCount();
     }
-    void OnClick() {
-        Debug.Log("Test");
+    public void SubtractFromCount() {
+        inventory.RemoveItem(title.text);
     }
 }
