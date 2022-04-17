@@ -108,4 +108,9 @@ public class FarmerControl : MonoBehaviour
         agentGuard.speed = speed;
 
     }
+
+    public void SpeedZero()
+    {
+        enemy.speed = 0;
+    }
 }
