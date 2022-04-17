@@ -80,13 +80,9 @@ public class RaffaController : MonoBehaviour
         if (interactiveRef.tag == "Teleporter") {
             interactiveRef.GetComponent<TPScript>().changeScene();
         }
-        if (interactiveRef.tag == "Father")
+        if (interactiveRef.tag == "NPC")
         {
             FindObjectOfType<DialogueManager>().DisplayNextSentence();
-        }
-        if (interactiveRef.tag == "Goddess")
-        {
-            
         }
     }
 
@@ -273,8 +269,9 @@ public class RaffaController : MonoBehaviour
             canDig = true;
             interactiveRef = x.gameObject;
         }
-        if (x.tag == "Teleporter") {
+         if (x.tag == "Teleporter") {
             interactiveRef = x.gameObject;
+            interactiveRef.GetComponent<DialogueTrigger>().TriggerDialogue();
         }
         if (x.tag == "Sneak") {
             sneaks++;
@@ -283,14 +280,10 @@ public class RaffaController : MonoBehaviour
         {
             SceneManager.LoadScene("LoseMenu");
         }
-        if (x.tag == "Father")
-        {
-            FindObjectOfType<DialogueTrigger>().TriggerDialogue();
-            interactiveRef = x.gameObject;
-        }
-        if (x.tag == "Goddess")
+        if (x.tag == "NPC")
         {
             interactiveRef = x.gameObject;
+            interactiveRef.GetComponent<DialogueTrigger>().TriggerDialogue();
         }
     }
 
@@ -314,13 +307,9 @@ public class RaffaController : MonoBehaviour
         if (x.tag == "Sneak") {
             sneaks--;
         }
-        if (x.tag == "Father")
+        if (x.tag == "NPC")
         {
             FindObjectOfType<DialogueManager>().EndDialogue();
-        }
-        if (x.tag == "Goddess")
-        {
-            
         }
     }
     IEnumerator SwingCooldown()

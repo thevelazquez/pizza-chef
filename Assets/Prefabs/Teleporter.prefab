@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7378625267463720614}
   - component: {fileID: 7378625267463720616}
   - component: {fileID: 7378625267463720613}
+  - component: {fileID: 5862231587660925544}
   m_Layer: 0
   m_Name: Teleporter
   m_TagString: Teleporter
@@ -75,3 +76,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Level1
+--- !u!114 &5862231587660925544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7378625267463720612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e171ad7df5a9cb34180c9e12907378a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Farm
+    sentences:
+    - Interact to Leave
