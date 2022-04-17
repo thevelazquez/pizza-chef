@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class RaffaController : MonoBehaviour
 {
+    public static bool withinTradingRange = false;
     [SerializeField]
     public float maximumSpeed;
 
@@ -281,6 +282,9 @@ public class RaffaController : MonoBehaviour
                 interactiveRef = x.gameObject;
                 interactiveRef.GetComponent<DialogueTrigger>().TriggerDialogue();
                 break;
+            case "Trader":
+                withinTradingRange = true;
+                break;
             default:
                 Debug.Log(x.tag);
                 break;
@@ -318,6 +322,9 @@ public class RaffaController : MonoBehaviour
             case "Teleporter":
                 FindObjectOfType<DialogueManager>().EndDialogue();
                 interactiveRef = null;
+                break;
+            case "Trader":
+                withinTradingRange = false;
                 break;
             default:
                 canCollect = false;

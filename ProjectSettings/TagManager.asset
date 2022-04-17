@@ -17,6 +17,7 @@ TagManager:
   - NPC
   - Father
   - Collectible
+  - Trader
   layers:
   - Default
   - TransparentFX

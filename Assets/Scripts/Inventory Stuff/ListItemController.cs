@@ -1,27 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ListItemController : MonoBehaviour
 {
     public TextMeshProUGUI title;
     public TextMeshProUGUI countTxt;
-
     InventoryController inventory;
-    
     int quantity = 0;
+    Image getImage;
     //int current = 0;
     // Start is called before the first frame update
     void Start()
     {
         inventory = transform.parent.parent.gameObject.GetComponent<InventoryController>();
+        getImage = GetComponent<Image>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (RaffaController.withinTradingRange) {
+            getImage.color = Color.green;
+        } else {
+            getImage.color = Color.white;
+        }
     }
 
     public void SetText (string name, int x) {
