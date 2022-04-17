@@ -6,10 +6,10 @@ using TMPro;
 public class ListItemController : MonoBehaviour
 {
     public TextMeshProUGUI title;
-    public TextMeshProUGUI count;
+    public TextMeshProUGUI countTxt;
     
-    int max = 0;
-    int current = 0;
+    int quantity = 0;
+    //int current = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,16 +24,16 @@ public class ListItemController : MonoBehaviour
 
     public void SetText (string name, int x) {
         title.text = name;
-        max = x;
+        quantity = x;
         ConstructCount();
     }
 
     void ConstructCount() {
-        count.text = $"{current}/{max}";
+        countTxt.text = $"{quantity}";
     }
 
     public void AddToCount() {
-        current++;
+        quantity++;
         ConstructCount();
     }
 }

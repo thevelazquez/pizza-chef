@@ -75,7 +75,9 @@ public class RaffaController : MonoBehaviour
             return;
         }
         if (canCollect) {
-            interactiveRef.SetActive(false);
+            //interactiveRef.SetActive(false);
+            interactiveRef.GetComponent<CollectibleController>().PickUp();
+            return;
         }
         if (interactiveRef.tag == "Teleporter") {
             interactiveRef.GetComponent<TPScript>().changeScene();
