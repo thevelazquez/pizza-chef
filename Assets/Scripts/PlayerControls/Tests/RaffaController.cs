@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class RaffaController : MonoBehaviour
 {
-    public static bool withinTradingRange = false;
+    public bool withinTradingRange = false;
     [SerializeField]
     public float maximumSpeed;
 
@@ -118,6 +118,7 @@ public class RaffaController : MonoBehaviour
     {
         return (sneaks>0)?isSneaking:false;
     }
+    
 
     void Jump()
     {
@@ -284,6 +285,8 @@ public class RaffaController : MonoBehaviour
                 break;
             case "Trader":
                 withinTradingRange = true;
+                interactiveRef = x.gameObject;
+                interactiveRef.GetComponent<DialogueTrigger>().TriggerDialogue();
                 break;
             default:
                 Debug.Log(x.tag);
@@ -325,10 +328,12 @@ public class RaffaController : MonoBehaviour
                 break;
             case "Trader":
                 withinTradingRange = false;
+                FindObjectOfType<DialogueManager>().EndDialogue();
                 break;
             default:
+                Debug.Log("Exited hitbox");
                 canCollect = false;
-                interactiveRef = null;
+                //interactiveRef = null;
                 break;
         }/*
         if (x.tag == "Milkable") {
@@ -358,5 +363,9 @@ public class RaffaController : MonoBehaviour
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
         isAttacking = false;
 
+    }
+    public GameObject GetTraderReference() {
+        //Debug.Log($"Passing through {interactiveRef.name}");
+        return interactiveRef;
     }
 }

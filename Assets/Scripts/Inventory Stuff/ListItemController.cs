@@ -8,14 +8,16 @@ public class ListItemController : MonoBehaviour
 {
     public TextMeshProUGUI title;
     public TextMeshProUGUI countTxt;
-    InventoryController inventory;
+    //InventoryController inventory;
+    RaffaController player;
     int quantity = 0;
     Image getImage;
     //int current = 0;
     // Start is called before the first frame update
     void Start()
     {
-        inventory = transform.parent.parent.gameObject.GetComponent<InventoryController>();
+        //inventory = transform.parent.parent.gameObject.GetComponent<InventoryController>();
+        player = FindObjectOfType<RaffaController>();
         getImage = GetComponent<Image>();
         
     }
@@ -23,7 +25,7 @@ public class ListItemController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (RaffaController.withinTradingRange) {
+        if (player.withinTradingRange) {
             getImage.color = Color.green;
         } else {
             getImage.color = Color.white;
@@ -45,6 +47,8 @@ public class ListItemController : MonoBehaviour
         ConstructCount();
     }
     public void SubtractFromCount() {
-        inventory.RemoveItem(title.text);
+        if (player.withinTradingRange) {
+            player.GetTraderReference().GetComponent<TradeMaker>().CheckIfTradable(title.text);
+        }
     }
 }

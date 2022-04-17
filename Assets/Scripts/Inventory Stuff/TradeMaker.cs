@@ -18,11 +18,12 @@ public class TradeMaker : MonoBehaviour
             Debug.Log("The trade is complete");
             return;
         }
+        inventory.RemoveItem(item);
         foreach (Trade x in trades) {
             if (item == x.take) {
                 if (x.count > 0) {
                     x.count--;
-                    VerifyTrade();
+                    StartCoroutine(VerifyTrade());
                     return;
                 } else {
                     Debug.Log($"{x.take}s has been satisfied");
@@ -36,10 +37,11 @@ public class TradeMaker : MonoBehaviour
     }
 
     //check if no more items are being requested
-    void VerifyTrade() {
+    IEnumerator VerifyTrade() {
+        yield return 0;
         foreach(Trade x in trades) {
             if (x.count > 0) {
-                return;
+                yield break;
             }
         }
         inventory.CollectedItem(offer);
