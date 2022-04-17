@@ -36,4 +36,7 @@ public class ListItemController : MonoBehaviour
         quantity++;
         ConstructCount();
     }
+    void OnClick() {
+        Debug.Log("Test");
+    }
 }

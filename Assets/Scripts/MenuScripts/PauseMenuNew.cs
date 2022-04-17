@@ -44,7 +44,7 @@ public class PauseMenuNew : MonoBehaviour
                 Pause();
             }
         }
-        else if (Input.GetKeyDown(KeyCode.I))
+        /*else if (Input.GetKeyDown(KeyCode.I))
         {
             if (isPaused)
             {
@@ -71,7 +71,7 @@ public class PauseMenuNew : MonoBehaviour
                  ActivateCursor();
              }
             */
-        }
+        //}
     }
 
     public void Resume()

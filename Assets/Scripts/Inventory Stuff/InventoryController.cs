@@ -79,6 +79,7 @@ public class InventoryController : MonoBehaviour
 
     void RefreshItemList() {
         EmptyListItems();
+        //execute remaining code in the next frame
         StartCoroutine(displayAfterEmpty());
     }
 
