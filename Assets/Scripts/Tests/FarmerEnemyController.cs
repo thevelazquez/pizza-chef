@@ -133,7 +133,7 @@ public class FarmerEnemyController : MonoBehaviour
 
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
-        SceneManager.LoadScene("LoseMenu");
+        SceneManager.LoadScene("Level1");
 
 
     }
