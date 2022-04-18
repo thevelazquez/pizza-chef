@@ -8,7 +8,7 @@ public class CollectibleController : MonoBehaviour
     public string itemName;
     //public GameObject inventoryPanel;
     InventoryController invScript;
-    public GameObject HitParticle;
+    //public GameObject HitParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class CollectibleController : MonoBehaviour
 
     public void PickUp() {
         invScript.CollectedItem(itemName);
-        Instantiate(HitParticle, new Vector3(gameObject.transform.position.x, transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
+        //Instantiate(HitParticle, new Vector3(gameObject.transform.position.x, transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
         gameObject.SetActive(false);
     }
 
