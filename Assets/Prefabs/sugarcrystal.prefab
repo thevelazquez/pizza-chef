@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 8278888067665751770}
   - component: {fileID: 6125022608728463888}
   - component: {fileID: 4726863473737557757}
+  - component: {fileID: -6013927967444309282}
+  - component: {fileID: -4810067704015360100}
   m_Layer: 0
   m_Name: sugarcrystal
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,3 +97,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.045517158, y: 0.080848634, z: 0.06061677}
   m_Center: {x: 0.000914786, y: 0.01919427, z: 0.0090947235}
+--- !u!65 &-6013927967444309282
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5620650580156398533}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.045517158, y: 0.080848634, z: 0.06061677}
+  m_Center: {x: 0.000914786, y: 0.01919427, z: 0.0090947235}
+--- !u!114 &-4810067704015360100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5620650580156398533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f075299bc12bb3f44b9785aa46a2b552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Sugar
