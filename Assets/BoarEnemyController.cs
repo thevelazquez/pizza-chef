@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class BoarEnemyController : MonoBehaviour
 {
@@ -29,6 +30,11 @@ public class BoarEnemyController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (Vector3.Distance(player.transform.position,transform.position)<=3f)
+        {
+            StartCoroutine(PlayerFade());
+
+        }
         if(enemy.remainingDistance == 0)
         {
             animator.SetBool("isWalking",false);
@@ -73,5 +79,20 @@ public class BoarEnemyController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(testPoint, 1);
+    }
+
+    IEnumerator PlayerFade()
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(2);
+
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+        SceneManager.LoadScene("Level3");
+
+
     }
 }
