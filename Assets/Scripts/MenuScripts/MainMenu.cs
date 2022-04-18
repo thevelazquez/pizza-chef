@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
         controlScreen.SetActive(false);
     }
 
-    public void StartGameLvl1 ()
+    public void StartGame()
     {
         SceneManager.LoadScene("HubScene");
     }

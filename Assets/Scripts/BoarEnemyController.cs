@@ -15,6 +15,7 @@ public class BoarEnemyController : MonoBehaviour
     public float randomDistance; // distance the boar chooses to wander towards
     public float aggroRange;
     public GameObject player;
+    Vector3 playerPos;
     Vector3 testPoint = Vector3.zero;
     Animator animator;
     // Start is called before the first frame update
@@ -32,8 +33,7 @@ public class BoarEnemyController : MonoBehaviour
     {
         if (Vector3.Distance(player.transform.position,transform.position)<=3f)
         {
-            StartCoroutine(PlayerFade());
-
+            //StartCoroutine(PlayerFade());
         }
         if(enemy.remainingDistance == 0)
         {
@@ -43,8 +43,10 @@ public class BoarEnemyController : MonoBehaviour
             animator.SetBool("isWalking",true);
         }
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, aggroRange,1))
+        //Debug.DrawRay(transform.position,new Vector3(player.transform.position.x,player.transform.position.y+.6f,player.transform.position.z) - new Vector3(transform.position.x,transform.position.y+.3f,transform.position.z),Color.white,.5f);
+        if(Physics.Raycast(new Vector3(transform.position.x,transform.position.y+.3f,transform.position.z), new Vector3(player.transform.position.x,player.transform.position.y+.6f,player.transform.position.z) - new Vector3(transform.position.x,transform.position.y+.3f,transform.position.z), out hit, aggroRange,1))
         {
+            Debug.Log(hit.transform.gameObject.name);
             testPoint = hit.transform.position;
             if(hit.transform.gameObject.GetComponent(typeof(RaffaController)) != null)
             {
