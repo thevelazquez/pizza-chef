@@ -277,7 +277,7 @@ public class RaffaController : MonoBehaviour
                 sneaks++;
                 break;
             case "Farmer":
-                SceneManager.LoadScene("LoseMenu");
+
                 break;
             case "NPC":
                 interactiveRef = x.gameObject;
@@ -364,6 +364,7 @@ public class RaffaController : MonoBehaviour
         isAttacking = false;
 
     }
+
     public GameObject GetTraderReference() {
         //Debug.Log($"Passing through {interactiveRef.name}");
         return interactiveRef;

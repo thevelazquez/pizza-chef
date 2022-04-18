@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class FarmerEnemyController : MonoBehaviour
 {
@@ -33,6 +34,12 @@ public class FarmerEnemyController : MonoBehaviour
     void Update()
     {
         SetDestination();
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+
+        {
+            StartCoroutine(PlayerFade());
+
+        }
     }
 
     void SetDestination()
@@ -56,6 +63,9 @@ public class FarmerEnemyController : MonoBehaviour
             {
                 //animator.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
                 animator.SetTrigger("Attack");
+
+              
+
                 //enemy.speed = 0;
             }
         } else
@@ -112,5 +122,19 @@ public class FarmerEnemyController : MonoBehaviour
     public void SpeedZero()
     {
         enemy.speed = 0;
+    }
+    IEnumerator PlayerFade()
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(2);
+
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+        SceneManager.LoadScene("LoseMenu");
+
+
     }
 }
