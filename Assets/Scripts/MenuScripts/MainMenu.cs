@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGameLvl1 ()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("HubScene");
     }
 
 
