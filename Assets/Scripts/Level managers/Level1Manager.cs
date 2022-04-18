@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Level1Manager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public GameObject collectibles;
+    public GameObject winDisplay;
+    
+    void Update() {
+        CheckWinCondition();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void CheckWinCondition() {
+        foreach (Transform child in collectibles.transform) {
+            if (child.gameObject.active) {
+                return;
+            }
+        }
+        Win();
+    }
+
+    void Win() {
+        winDisplay.SetActive(true);
     }
 }

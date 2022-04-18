@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5110130314401422339}
   - component: {fileID: 3605820775151166222}
   m_Layer: 0
-  m_Name: Diggable Prefab
+  m_Name: Diggable Prefab 1
   m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838524587426394396}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -2535019157606312056, guid: 22630b4599c9faa4d8c760f862c85eb5, type: 3}
 --- !u!114 &3605820775151166222
 MonoBehaviour:
   m_ObjectHideFlags: 0
