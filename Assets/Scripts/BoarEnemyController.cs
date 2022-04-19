@@ -31,10 +31,6 @@ public class BoarEnemyController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Vector3.Distance(player.transform.position,transform.position)<=3f)
-        {
-            //StartCoroutine(PlayerFade());
-        }
         if(enemy.remainingDistance == 0)
         {
             animator.SetBool("isWalking",false);
@@ -46,11 +42,10 @@ public class BoarEnemyController : MonoBehaviour
         //Debug.DrawRay(transform.position,new Vector3(player.transform.position.x,player.transform.position.y+.6f,player.transform.position.z) - new Vector3(transform.position.x,transform.position.y+.3f,transform.position.z),Color.white,.5f);
         if(Physics.Raycast(new Vector3(transform.position.x,transform.position.y+.3f,transform.position.z), new Vector3(player.transform.position.x,player.transform.position.y+.6f,player.transform.position.z) - new Vector3(transform.position.x,transform.position.y+.3f,transform.position.z), out hit, aggroRange,1))
         {
-            Debug.Log(hit.transform.gameObject.name);
-            testPoint = hit.transform.position;
+            //Debug.Log(hit.transform.gameObject.name);
+            //testPoint = hit.transform.position;
             if(hit.transform.gameObject.GetComponent(typeof(RaffaController)) != null)
             {
-                Debug.Log("a");
                 if(enemy.remainingDistance <= .5f)
                 {
                     enemy.speed = walkSpeed;
@@ -77,11 +72,19 @@ public class BoarEnemyController : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            StartCoroutine(PlayerFade());
+        }
+    }
+
+    /* void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(testPoint, 1);
-    }
+    } */
 
     IEnumerator PlayerFade()
     {
