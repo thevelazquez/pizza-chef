@@ -18,6 +18,7 @@ TagManager:
   - Father
   - Collectible
   - Trader
+  - Goddess
   layers:
   - Default
   - TransparentFX

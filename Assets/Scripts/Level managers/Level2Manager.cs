@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Level2Manager : MonoBehaviour
 {
     public GameObject player;
+    bool awakenedAllStatues = false;
     [SerializeField]
     float killFloorY;
     void Update()
@@ -13,5 +14,14 @@ public class Level2Manager : MonoBehaviour
         if (player.transform.position.y < killFloorY) {
             SceneManager.LoadScene("Level2");
         }
+    }
+    public void areAllGuardiansAwakened() {
+        foreach (GuardianController guardian in FindObjectsOfType<GuardianController>()) {
+            if (!guardian.isAwakened) {
+                return;
+            }
+        }
+        FindObjectOfType<InventoryController>().CollectedItem("Tomato");
+        SceneManager.LoadScene("HubScene");
     }
 }

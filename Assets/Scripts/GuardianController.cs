@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class GuardianController : MonoBehaviour
 {
-    [SerializeField]
-    bool isAwakened = false;
+    public bool isAwakened = false;
 
     private Animator animator;
 
@@ -19,5 +18,6 @@ public class GuardianController : MonoBehaviour
         Debug.Log("Awakened");
         //start animation or whatever other visual queue
         animator.SetBool("Awake", true);
+        FindObjectOfType<Level2Manager>().areAllGuardiansAwakened();
     }
 }
