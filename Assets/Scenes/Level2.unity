@@ -11458,7 +11458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376404095780891381, guid: eac39e828e8a422479c08057510174f4, type: 3}
       propertyPath: m_TagString
-      value: NPC
+      value: Goddess
       objectReference: {fileID: 0}
     - target: {fileID: 2559472418642301110, guid: eac39e828e8a422479c08057510174f4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18150,7 +18150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376404095780891381, guid: eac39e828e8a422479c08057510174f4, type: 3}
       propertyPath: m_TagString
-      value: NPC
+      value: Goddess
       objectReference: {fileID: 0}
     - target: {fileID: 2559472418642301110, guid: eac39e828e8a422479c08057510174f4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19315,7 +19315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376404095780891381, guid: eac39e828e8a422479c08057510174f4, type: 3}
       propertyPath: m_TagString
-      value: NPC
+      value: Goddess
       objectReference: {fileID: 0}
     - target: {fileID: 2559472418642301110, guid: eac39e828e8a422479c08057510174f4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -32228,7 +32228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376404095780891381, guid: eac39e828e8a422479c08057510174f4, type: 3}
       propertyPath: m_TagString
-      value: NPC
+      value: Goddess
       objectReference: {fileID: 0}
     - target: {fileID: 2559472418642301110, guid: eac39e828e8a422479c08057510174f4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38990,7 +38990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376404095780891381, guid: eac39e828e8a422479c08057510174f4, type: 3}
       propertyPath: m_TagString
-      value: NPC
+      value: Goddess
       objectReference: {fileID: 0}
     - target: {fileID: 2559472418642301110, guid: eac39e828e8a422479c08057510174f4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -71519,7 +71519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376404095780891381, guid: eac39e828e8a422479c08057510174f4, type: 3}
       propertyPath: m_TagString
-      value: NPC
+      value: Goddess
       objectReference: {fileID: 0}
     - target: {fileID: 2559472418642301110, guid: eac39e828e8a422479c08057510174f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
