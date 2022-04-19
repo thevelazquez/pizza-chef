@@ -89,6 +89,7 @@ public class RaffaController : MonoBehaviour
                 FindObjectOfType<DialogueManager>().DisplayNextSentence();
                 break;
             case "Goddess":
+                animator.SetBool("IsPraying", true);
                 interactiveRef.GetComponent<GuardianController>().Awaken();
                 break;
         }
