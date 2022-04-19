@@ -801,7 +801,7 @@ GameObject:
   - component: {fileID: 7653405351447132063}
   m_Layer: 0
   m_Name: MarbleGoddessFinal
-  m_TagString: Untagged
+  m_TagString: Goddess
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -924,6 +924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235cc8f0ee2a25b4b98c0eb67392c938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAwakened: 0
 --- !u!1 &2425062291135323377
 GameObject:
   m_ObjectHideFlags: 0

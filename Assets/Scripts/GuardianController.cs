@@ -9,6 +9,7 @@ public class GuardianController : MonoBehaviour
 
     public void Awaken () {
         isAwakened = true;
+        Debug.Log("Awakened");
         //start animation or whatever other visual queue
     }
 }

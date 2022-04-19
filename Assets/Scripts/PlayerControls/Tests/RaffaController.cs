@@ -81,6 +81,17 @@ public class RaffaController : MonoBehaviour
             canCollect = false;
             return;
         }
+        switch (interactiveRef.tag) {
+            case "Teleporter":
+                interactiveRef.GetComponent<TPScript>().changeScene();
+                break;
+            case "NPC":
+                FindObjectOfType<DialogueManager>().DisplayNextSentence();
+                break;
+            case "Goddess":
+                interactiveRef.GetComponent<GuardianController>().Awaken();
+                break;
+        }
         if (interactiveRef.tag == "Teleporter") {
             interactiveRef.GetComponent<TPScript>().changeScene();
         }
@@ -276,8 +287,9 @@ public class RaffaController : MonoBehaviour
             case "Sneak":
                 sneaks++;
                 break;
-            case "Farmer":
-
+            case "Goddess":
+                interactiveRef = x.gameObject;
+                interactiveRef.GetComponent<DialogueTrigger>().TriggerDialogue();
                 break;
             case "NPC":
                 interactiveRef = x.gameObject;
@@ -328,6 +340,9 @@ public class RaffaController : MonoBehaviour
                 break;
             case "Trader":
                 withinTradingRange = false;
+                FindObjectOfType<DialogueManager>().EndDialogue();
+                break;
+            case "Goddess":
                 FindObjectOfType<DialogueManager>().EndDialogue();
                 break;
             default:
