@@ -19,6 +19,7 @@ TagManager:
   - Collectible
   - Trader
   - Goddess
+  - Blocking
   layers:
   - Default
   - TransparentFX

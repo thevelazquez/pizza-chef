@@ -838,6 +838,7 @@ GameObject:
   - component: {fileID: 8419963196513499653}
   - component: {fileID: 2716552673478579129}
   - component: {fileID: 2716552673478579128}
+  - component: {fileID: 8212871139971950884}
   - component: {fileID: 2716552673478579125}
   - component: {fileID: 2716552673478579127}
   m_Layer: 0
@@ -1008,6 +1009,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8212871139971950884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2986532595648510661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deca24df47d4be94a9691a9fe108cb8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthPoints: 10
+  Self: {fileID: 2986532595648510661}
 --- !u!114 &2716552673478579125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,6 +1035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479128b375c866c4e906f74520b64a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withinTradingRange: 0
   maximumSpeed: 6
   rotationSpeed: 720
   jumpSpeed: 6
@@ -1027,6 +1043,8 @@ MonoBehaviour:
   hoverSpeed: 0.5
   jumpButtonGracePeriod: 0.2
   cameraTransform: {fileID: 0}
+  isAttacking: 0
+  SwingSFX: {fileID: 0}
 --- !u!114 &2716552673478579127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1039,8 +1057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add51b633a3b8d84bb54fc376c0d9976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collected: {fileID: 0}
   pickup: {fileID: 8300000, guid: b3f5c5de5f16b004990bbe53bf3a8f8b, type: 3}
+  HitParticle: {fileID: 0}
 --- !u!1 &3077685740111452574
 GameObject:
   m_ObjectHideFlags: 0

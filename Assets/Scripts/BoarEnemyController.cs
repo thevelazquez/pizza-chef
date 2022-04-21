@@ -10,10 +10,12 @@ public class BoarEnemyController : MonoBehaviour
     Vector3 origin;
     float walkTime = 2f;
     float timer;
+    int boarHealth = 3;
     public float chargeSpeed = 7f;
     public float walkSpeed = 3.5f;
     public float randomDistance; // distance the boar chooses to wander towards
     public float aggroRange;
+    bool isAngry = false;
     public GameObject player;
     Vector3 playerPos;
     Vector3 testPoint = Vector3.zero;
@@ -48,6 +50,8 @@ public class BoarEnemyController : MonoBehaviour
             {
                 if(enemy.remainingDistance <= .5f)
                 {
+
+                                            isAngry = true;
                     enemy.speed = walkSpeed;
                 }
                 if(enemy.speed != chargeSpeed)
@@ -74,10 +78,20 @@ public class BoarEnemyController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            StartCoroutine(PlayerFade());
+        if (collision.gameObject.tag == "Player" && isAngry ==true)
+        {  
+       player.GetComponent<HPscript>().HealthPoints-=1;
+                      isAngry = false;   
+        
+       //player.GetComponent<HPscript>().HealthPoints--;
         }
+        else if (collision.gameObject.tag == "Player" && isAngry == false)
+        {  
+        StartCoroutine(BoarAttack());
+        
+       //player.GetComponent<HPscript>().HealthPoints--;
+        }
+        
     }
 
     /* void OnDrawGizmos()
@@ -86,18 +100,20 @@ public class BoarEnemyController : MonoBehaviour
         Gizmos.DrawSphere(testPoint, 1);
     } */
 
-    IEnumerator PlayerFade()
+    IEnumerator BoarAttack()
     {
         //Print the time of when the function is first called.
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
 
         //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
-        SceneManager.LoadScene("Level3");
+           //  SceneManager.LoadScene("Level3");
 
+                isAngry = true;   
 
     }
+     
 }

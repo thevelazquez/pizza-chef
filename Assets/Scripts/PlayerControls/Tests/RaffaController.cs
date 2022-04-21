@@ -26,7 +26,8 @@ public class RaffaController : MonoBehaviour
 
     [SerializeField]
     private Transform cameraTransform;
-
+   
+    
     private Animator animator;
     private CharacterController characterController;
     private PlayerControls controls;
@@ -254,8 +255,12 @@ public class RaffaController : MonoBehaviour
 
     void Block()
     {
+         isAttacking = false;
         animator.SetLayerWeight(animator.GetLayerIndex("Combat Layer"), 1);
         animator.SetTrigger("Defend");
+               gameObject.tag = "Blocking";
+        StartCoroutine(BlockCooldown());
+
     }
 
     private void OnApplicationFocus(bool focus)
@@ -277,6 +282,7 @@ public class RaffaController : MonoBehaviour
                 canCollect = true;
                 interactiveRef = x.gameObject;
                 break;
+           
             case "Milkable":
                 canCollect = true;
                 interactiveRef = x.gameObject;
@@ -373,21 +379,18 @@ public class RaffaController : MonoBehaviour
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
 
         //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
         isAttacking = false;
+                      
+
 
     }
-
-    public GameObject GetTraderReference() {
-        //Debug.Log($"Passing through {interactiveRef.name}");
-        return interactiveRef;
-    }
-
-    IEnumerator PlayerFade()
+     IEnumerator BlockCooldown()
     {
+          
         //Print the time of when the function is first called.
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
 
@@ -396,8 +399,28 @@ public class RaffaController : MonoBehaviour
 
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
-        SceneManager.LoadScene("Level3");
+     
+                       gameObject.tag = "Player";
 
 
+    }
+
+    public GameObject GetTraderReference() {
+        //Debug.Log($"Passing through {interactiveRef.name}");
+        return interactiveRef;
+    }
+
+
+      void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy" && isAttacking == true)
+        {  
+       collision.gameObject.GetComponent<HPscript>().HealthPoints-=1;
+                      isAttacking = false;   
+        
+       //player.GetComponent<HPscript>().HealthPoints--;
+        }
+       
+        
     }
 }
