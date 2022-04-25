@@ -432,6 +432,7 @@ GameObject:
   - component: {fileID: 8483481934710219825}
   - component: {fileID: 3471341601522706736}
   - component: {fileID: 2026350005878910754}
+  - component: {fileID: -3535828409249344473}
   m_Layer: 0
   m_Name: MeatBallFinal
   m_TagString: Enemy
@@ -542,6 +543,21 @@ MonoBehaviour:
   randomDistance: 10
   aggroRange: 5
   player: {fileID: 0}
+--- !u!114 &-3535828409249344473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810522531096814437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deca24df47d4be94a9691a9fe108cb8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthPoints: 2
+  Self: {fileID: 3810522531096814437}
+  Ingredient: {fileID: 8580500676142260098, guid: 3f20d5fed522c3042aca10eadab139cd, type: 3}
 --- !u!1 &3821028594687491049
 GameObject:
   m_ObjectHideFlags: 0

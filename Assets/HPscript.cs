@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class HPscript : MonoBehaviour
 {
     public int HealthPoints;
-public GameObject Self;
+    public GameObject Self;
+    public GameObject Ingredient;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,14 @@ public GameObject Self;
         else if(HealthPoints < 1 && Self.tag == "Enemy")
         {
         Destroy(gameObject);
-
+        DropIngredient();
         }
+    }
+    
+    void DropIngredient()
+    {
+        Vector3 position = transform.position;
+        GameObject ingredient = Instantiate(Ingredient, position + new Vector3 (0.0f,1.0f,0.0f), Quaternion.identity);
+        ingredient.SetActive(true);
     }
 }
