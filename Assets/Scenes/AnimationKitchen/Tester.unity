@@ -1058,7 +1058,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171180094}
-  m_LocalRotation: {x: 0.1206646, y: -0.0000000043148494, z: 5.1361915e-10, w: 0.99269336}
+  m_LocalRotation: {x: 0.1206646, y: 0.0000000043148494, z: -5.1361915e-10, w: 0.99269336}
   m_LocalPosition: {x: 0, y: 3.8, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1689,6 +1689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479128b375c866c4e906f74520b64a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withinTradingRange: 0
   maximumSpeed: 6
   rotationSpeed: 720
   jumpSpeed: 6
@@ -2683,6 +2684,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 752507141536638862, guid: dcd1aa9090617944595e6db7eb0da227, type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 752507141536638862, guid: dcd1aa9090617944595e6db7eb0da227, type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 752507141536638862, guid: dcd1aa9090617944595e6db7eb0da227, type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: Find wheat and sugar and bring them back here to make dough.
+      objectReference: {fileID: 0}
     - target: {fileID: 3018027113284213583, guid: dcd1aa9090617944595e6db7eb0da227, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.009267363
@@ -2766,6 +2779,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goddess
       objectReference: {fileID: 0}
+    - target: {fileID: 1325513137521680028, guid: 1fd74af875956a14ea0c40906600e92c, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     - target: {fileID: 1814664228689642534, guid: 1fd74af875956a14ea0c40906600e92c, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -2809,6 +2826,46 @@ PrefabInstance:
     - target: {fileID: 1814664228689642534, guid: 1fd74af875956a14ea0c40906600e92c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207963372168439613, guid: 1fd74af875956a14ea0c40906600e92c, type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207963372168439613, guid: 1fd74af875956a14ea0c40906600e92c, type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207963372168439613, guid: 1fd74af875956a14ea0c40906600e92c, type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: Where we grow the best produce in the land.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207963372168439613, guid: 1fd74af875956a14ea0c40906600e92c, type: 3}
+      propertyPath: dialogue.sentences.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207963372168439613, guid: 1fd74af875956a14ea0c40906600e92c, type: 3}
+      propertyPath: dialogue.sentences.Array.data[4]
+      value: Or I should say the sky (hehe).
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207963372168439613, guid: 1fd74af875956a14ea0c40906600e92c, type: 3}
+      propertyPath: dialogue.sentences.Array.data[5]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207963372168439613, guid: 1fd74af875956a14ea0c40906600e92c, type: 3}
+      propertyPath: dialogue.sentences.Array.data[6]
+      value: If you wish to buy any produce from this garden,
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207963372168439613, guid: 1fd74af875956a14ea0c40906600e92c, type: 3}
+      propertyPath: dialogue.sentences.Array.data[7]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207963372168439613, guid: 1fd74af875956a14ea0c40906600e92c, type: 3}
+      propertyPath: dialogue.sentences.Array.data[8]
+      value: we welcome the exchange of golden olives.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207963372168439613, guid: 1fd74af875956a14ea0c40906600e92c, type: 3}
+      propertyPath: dialogue.sentences.Array.data[9]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fd74af875956a14ea0c40906600e92c, type: 3}
@@ -2934,19 +2991,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5749170533253535327, guid: 5b0fc732966bec444b0c8b7306e5d307, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000042701647
+      value: 0.0000000042701647
       objectReference: {fileID: 0}
     - target: {fileID: 5749170533253535327, guid: 5b0fc732966bec444b0c8b7306e5d307, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 5.1905025e-10
+      value: -5.1905025e-10
       objectReference: {fileID: 0}
     - target: {fileID: 5749170533829615107, guid: 5b0fc732966bec444b0c8b7306e5d307, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000004278879
+      value: 0.000000004278879
       objectReference: {fileID: 0}
     - target: {fileID: 5749170533829615107, guid: 5b0fc732966bec444b0c8b7306e5d307, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 4.4149776e-10
+      value: -4.4149776e-10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b0fc732966bec444b0c8b7306e5d307, type: 3}

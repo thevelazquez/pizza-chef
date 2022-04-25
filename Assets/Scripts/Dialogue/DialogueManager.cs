@@ -51,7 +51,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
-            dialogueText.text  += letter;
+            dialogueText.text += letter;
             yield return null;
         }
     }
