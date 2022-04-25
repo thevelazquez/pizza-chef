@@ -101,7 +101,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4207912898823300979}
   - component: {fileID: 4078045456493237197}
-  - component: {fileID: 427459354196488806}
   m_Layer: 0
   m_Name: greenpepper
   m_TagString: Collectible
@@ -139,19 +138,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.03, y: 0.03, z: 0.03}
   m_Center: {x: 0, y: 0.01, z: 0}
---- !u!114 &427459354196488806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3543861011009633737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f075299bc12bb3f44b9785aa46a2b552, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Pepper
 --- !u!1 &3761920340176217547
 GameObject:
   m_ObjectHideFlags: 0
