@@ -8847,7 +8847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoints: 10
-  Self: {fileID: 0}
+  Self: {fileID: 1097130882}
   Ingredient: {fileID: 0}
 --- !u!114 &1097130886
 MonoBehaviour:
