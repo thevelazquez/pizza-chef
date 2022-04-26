@@ -11,7 +11,7 @@ public class PauseMenuNew : MonoBehaviour
     public GameObject controlScreen;
     public GameObject genScreen;
     public GameObject UIScreen;
-    public GameObject InvScreen;
+    //public GameObject InvScreen;
 
     public GameObject Menu;
 
@@ -39,7 +39,7 @@ public class PauseMenuNew : MonoBehaviour
             else
             {
                 UIScreen.SetActive(true);
-                InvScreen.SetActive(false);
+                //InvScreen.SetActive(false);
                 ActivateCursor();
                 Pause();
             }
@@ -86,8 +86,8 @@ public class PauseMenuNew : MonoBehaviour
     {
         Time.timeScale = 0f;
         isPaused = true;
-       /* UIScreen.SetActive(true);
-        genScreen.SetActive(true);*/
+        UIScreen.SetActive(true);
+        genScreen.SetActive(true);
         aboutScreen.SetActive(false);
         creditScreen.SetActive(false);
         controlScreen.SetActive(false);

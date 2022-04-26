@@ -7,4 +7,13 @@ public class Trade
 {
     public string take;
     public int count;
+    int initCount;
+
+    public void Init() {
+        initCount = count;
+    }
+
+    public int GetInitialCount() {
+        return initCount;
+    }
 }
