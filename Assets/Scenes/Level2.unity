@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3680,7 +3680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7378625267463720615, guid: 4db749ecb990e6743866ea3a8fdb1c85, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7378625267463720615, guid: 4db749ecb990e6743866ea3a8fdb1c85, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20192,7 +20192,7 @@ Transform:
   - {fileID: 1019978424}
   - {fileID: 1183563172}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &588644169
 GameObject:
@@ -21066,7 +21066,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1254179383250070321, guid: 764aa99ce9f3d28478557e5c98742bda, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1254179383250070321, guid: 764aa99ce9f3d28478557e5c98742bda, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28581,7 +28581,7 @@ Transform:
   - {fileID: 181985396}
   - {fileID: 353714805}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &824513654
 GameObject:
@@ -42188,6 +42188,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2641604508613202228, guid: 1fd74af875956a14ea0c40906600e92c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fd74af875956a14ea0c40906600e92c, type: 3}
 --- !u!1 &1243589359
@@ -46158,6 +46162,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ded0d281609e71c44a5a8b2795be827b, type: 3}
+--- !u!1 &1370299024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2641604508613202228, guid: 1fd74af875956a14ea0c40906600e92c, type: 3}
+  m_PrefabInstance: {fileID: 1243413062}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1370967424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60107,7 +60116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8758446089350028682, guid: 549e9315e8a41b34c9e5a333d885ab6b, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8758446089350028682, guid: 549e9315e8a41b34c9e5a333d885ab6b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63054,6 +63063,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ded0d281609e71c44a5a8b2795be827b, type: 3}
+--- !u!1 &1867683984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1867683987}
+  - component: {fileID: 1867683986}
+  - component: {fileID: 1867683985}
+  m_Layer: 0
+  m_Name: Goddess initial dialog
+  m_TagString: NPC
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1867683985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867683984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e171ad7df5a9cb34180c9e12907378a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Goddess
+    sentences:
+    - Please pray to all the statues if you'd like to trade with me
+--- !u!65 &1867683986
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867683984}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.78, y: 2.27, z: 2.11}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1867683987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867683984}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.059897155, y: 3.89, z: 14.78}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1869197492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ded0d281609e71c44a5a8b2795be827b, type: 3}
@@ -63168,7 +63238,7 @@ Transform:
   - {fileID: 1990545696}
   - {fileID: 278310431}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1875942950
 PrefabInstance:
@@ -69593,6 +69663,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1404395341}
   killFloorY: -32
+  goddessDialogue: {fileID: 1867683984}
+  goddessTrader: {fileID: 1370299024}
 --- !u!4 &2036999136
 Transform:
   m_ObjectHideFlags: 0
@@ -69605,7 +69677,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2037838814
 PrefabInstance:
@@ -72114,7 +72186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3963826234507318315, guid: 495d7364ba941c64ba789c9b31b66332, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3963826234507318315, guid: 495d7364ba941c64ba789c9b31b66332, type: 3}
       propertyPath: m_AnchorMax.x
