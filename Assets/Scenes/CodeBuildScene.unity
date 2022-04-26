@@ -1660,7 +1660,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: OG Collectible
-  HitParticle: {fileID: 4875119428203130158, guid: 5165460420b30c8428173f8b2fe7281f, type: 3}
 --- !u!1 &1758433971 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5485400550906037285, guid: d26b54ba4e9b5ac409e45d373282d163, type: 3}
@@ -1690,11 +1689,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rfc: {fileID: 1510028099}
   HitParticle: {fileID: 4875119428203130158, guid: 5165460420b30c8428173f8b2fe7281f, type: 3}
---- !u!1 &1807470102 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 212904486, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
-  m_PrefabInstance: {fileID: 2120242657}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1832407923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1945,7 +1939,7 @@ PrefabInstance:
     - target: {fileID: 91250979, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: InvScreen
       value: 
-      objectReference: {fileID: 1807470102}
+      objectReference: {fileID: 0}
     - target: {fileID: 212904486, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2799,12 +2793,24 @@ PrefabInstance:
       value: Trader
       objectReference: {fileID: 0}
     - target: {fileID: 7264880335044025167, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
-      propertyPath: trades.Array.size
+      propertyPath: maxTrades
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025167, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: singleTrade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025167, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: trades.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7264880335044025167, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
       propertyPath: trades.Array.data[1].take
       value: bug
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025167, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: trades.Array.data[0].count
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7264880335044025167, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
       propertyPath: trades.Array.data[1].count

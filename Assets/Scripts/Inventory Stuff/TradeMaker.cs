@@ -6,7 +6,8 @@ public class TradeMaker : MonoBehaviour
 {
     public Trade[] trades;
     public string offer;
-    public bool singleTrade = false;
+    [SerializeField]
+    int maxTrades = 1;
     InventoryController inventory;
     bool IsTradeComplete = false;
 
@@ -50,9 +51,11 @@ public class TradeMaker : MonoBehaviour
                 yield break;
             }
         }
+        maxTrades--;
         inventory.CollectedItem(offer);
-        if (singleTrade) {
+        if (maxTrades == 0) {
             IsTradeComplete = true;
+            yield break;
         }
         ResetTrades();
     }
@@ -62,5 +65,9 @@ public class TradeMaker : MonoBehaviour
             Debug.Log("Resetting trades");
             x.count = x.GetInitialCount();
         }
+    }
+
+    public bool GetIsTradeComplete() {
+        return IsTradeComplete;
     }
 }
