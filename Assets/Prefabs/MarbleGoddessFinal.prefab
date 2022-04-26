@@ -799,6 +799,7 @@ GameObject:
   - component: {fileID: 3187360234016380833}
   - component: {fileID: 3187360234016380834}
   - component: {fileID: 7653405351447132063}
+  - component: {fileID: 8471924923906021767}
   m_Layer: 0
   m_Name: MarbleGoddessFinal
   m_TagString: Goddess
@@ -866,8 +867,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.75, y: 3.25, z: 0.5}
-  m_Center: {x: 0, y: 1.5, z: 0.35}
+  m_Size: {x: 0.75, y: 2.65, z: 0.5}
+  m_Center: {x: 0, y: 1.2, z: 0.35000002}
 --- !u!135 &3187360234016380832
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -925,6 +926,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAwakened: 0
+  Ingredient: {fileID: 0}
+--- !u!135 &8471924923906021767
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376404095780891381}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.25
+  m_Center: {x: 0, y: 2.85, z: 0.35}
 --- !u!1 &2425062291135323377
 GameObject:
   m_ObjectHideFlags: 0
