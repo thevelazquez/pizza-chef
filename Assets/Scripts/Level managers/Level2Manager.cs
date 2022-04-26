@@ -8,6 +8,8 @@ public class Level2Manager : MonoBehaviour
     public GameObject player;
     [SerializeField]
     float killFloorY;
+    public GameObject goddessDialogue;
+    public GameObject goddessTrader;
     void Update()
     {
         if (player.transform.position.y < killFloorY) {
@@ -20,7 +22,13 @@ public class Level2Manager : MonoBehaviour
                 return;
             }
         }
-        FindObjectOfType<InventoryController>().CollectedItem("Tomato");
-        SceneManager.LoadScene("HubScene");
+        InitiateGoddessTrader();
+        //FindObjectOfType<InventoryController>().CollectedItem("Tomato");
+        //SceneManager.LoadScene("HubScene");
+    }
+
+    public void InitiateGoddessTrader() {
+        goddessDialogue.SetActive(false);
+        goddessTrader.SetActive(true);
     }
 }
