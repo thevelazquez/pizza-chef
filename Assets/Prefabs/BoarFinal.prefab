@@ -6503,7 +6503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deca24df47d4be94a9691a9fe108cb8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthPoints: 3
+  HealthPoints: 1
   Self: {fileID: 7028760092233888395}
   Ingredient: {fileID: 6306277081329852175, guid: 78d2748b21b7241469389d3753cc7cac, type: 3}
 --- !u!114 &1242582139479340277

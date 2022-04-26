@@ -254,8 +254,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1814664228689642534}
   - component: {fileID: 2207963372168439614}
-  - component: {fileID: 2207963372168439612}
-  - component: {fileID: 2207963372168439613}
   m_Layer: 0
   m_Name: Goddess
   m_TagString: NPC
@@ -285,6 +283,7 @@ Transform:
   - {fileID: 1898825510098011962}
   - {fileID: 5060335191200988590}
   - {fileID: 7815515092251848176}
+  - {fileID: 2641604508613202231}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -301,39 +300,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 3, z: 0.5}
   m_Center: {x: 0, y: 1.5, z: 0.35}
---- !u!65 &2207963372168439612
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325513137521680028}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 3, z: 1.5}
-  m_Center: {x: 0, y: 1.5, z: 0.75}
---- !u!114 &2207963372168439613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325513137521680028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e171ad7df5a9cb34180c9e12907378a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: Cloud Goddess
-    sentences:
-    - Welcome to the Cloud Gardens, Raffa!
-    - Where we grow the best produce in the land.
-    - Or I should say the sky (hehe).
-    - If you wish to buy any produce from this garden,
-    - we welcome the exchange of golden olives.
 --- !u!1 &1384866291085125784
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,3 +950,97 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &4646262783622564479
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1814664228689642534}
+    m_Modifications:
+    - target: {fileID: 7264880335044025160, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025160, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025160, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025160, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025160, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025160, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025160, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025160, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025160, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025160, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025160, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025161, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025161, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: m_Size.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025161, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: m_Center.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025162, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: dialogue.name
+      value: Cloud Goddess
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025162, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: 2 olives grants 1 tomato
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025163, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: m_Name
+      value: Trader
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025167, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: offer
+      value: Tomato
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025167, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: trades.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264880335044025167, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+      propertyPath: trades.Array.data[0].take
+      value: Olive
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+--- !u!4 &2641604508613202231 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7264880335044025160, guid: 3cf2f98cc7c0f604b9befdc8bc78733f, type: 3}
+  m_PrefabInstance: {fileID: 4646262783622564479}
+  m_PrefabAsset: {fileID: 0}
