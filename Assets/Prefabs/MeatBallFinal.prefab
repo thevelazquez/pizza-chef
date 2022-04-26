@@ -543,6 +543,7 @@ MonoBehaviour:
   randomDistance: 10
   aggroRange: 5
   player: {fileID: 0}
+  head: {fileID: 5786202537936585776}
 --- !u!114 &-3535828409249344473
 MonoBehaviour:
   m_ObjectHideFlags: 0

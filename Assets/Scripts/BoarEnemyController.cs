@@ -16,6 +16,7 @@ public class BoarEnemyController : MonoBehaviour
     public float aggroRange;
     bool isAngry = false;
     public GameObject player;
+    public Collider head;
     Vector3 playerPos;
     Vector3 testPoint = Vector3.zero;
     Animator animator;
@@ -49,12 +50,11 @@ public class BoarEnemyController : MonoBehaviour
             {
                 if(enemy.remainingDistance <= .5f)
                 {
-
-                                            isAngry = true;
                     enemy.speed = walkSpeed;
                 }
                 if(enemy.speed != chargeSpeed)
                 {
+                    isAngry = true;
                     enemy.SetDestination(player.transform.position);
                     enemy.speed = chargeSpeed;
                     return;
@@ -70,6 +70,7 @@ public class BoarEnemyController : MonoBehaviour
             NavMeshHit realPoint;
             NavMesh.SamplePosition(randomPoint,out realPoint,randomDistance,-1);
             enemy.SetDestination(realPoint.position);
+            isAngry = false;
             //testPoint = realPoint.position;
             timer = 0;
         }
@@ -77,20 +78,22 @@ public class BoarEnemyController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision);
         if (collision.gameObject.tag == "Player" && isAngry ==true)
-        {  
-       player.GetComponent<HPscript>().HealthPoints-=1;
-                      isAngry = false;   
-        
-       //player.GetComponent<HPscript>().HealthPoints--;
+        {
+            foreach(ContactPoint contact in collision.contacts)
+            {
+                if(contact.thisCollider == head)
+                {
+                    player.GetComponent<HPscript>().changeHP(-1);
+                    isAngry = false;
+                }
+            }
         }
-        else if (collision.gameObject.tag == "Player" && isAngry == false)
+        /* else if (collision.gameObject.tag == "Player" && isAngry == false)
         {  
-        StartCoroutine(BoarAttack());
-        
-       //player.GetComponent<HPscript>().HealthPoints--;
-        }
-        
+            StartCoroutine(BoarAttack());
+        } */
     }
 
     /* void OnDrawGizmos()

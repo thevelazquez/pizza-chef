@@ -408,16 +408,13 @@ public class RaffaController : MonoBehaviour
     }
 
 
-      void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy" && isAttacking == true)
+        if(collision.gameObject.tag == "Enemy" && isAttacking == true)
         {  
-       collision.gameObject.GetComponent<HPscript>().HealthPoints-=1;
-                      isAttacking = false;   
-        
-       //player.GetComponent<HPscript>().HealthPoints--;
+            collision.gameObject.GetComponent<HPscript>().changeHP(-1);
+            isAttacking = false;
+            //player.GetComponent<HPscript>().HealthPoints--;
         }
-       
-        
     }
 }

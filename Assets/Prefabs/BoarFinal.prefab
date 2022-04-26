@@ -6523,6 +6523,7 @@ MonoBehaviour:
   randomDistance: 10
   aggroRange: 10
   player: {fileID: 0}
+  head: {fileID: 7875183596746035160}
 --- !u!54 &1499273467
 Rigidbody:
   m_ObjectHideFlags: 0
