@@ -13,7 +13,7 @@ public class Level1Manager : MonoBehaviour
 
     void CheckWinCondition() {
         foreach (Transform child in collectibles.transform) {
-            if (child.gameObject.active) {
+            if (child.gameObject.activeInHierarchy) {
                 return;
             }
         }

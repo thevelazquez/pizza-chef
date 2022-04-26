@@ -21,7 +21,6 @@ public class PlayerControl : MonoBehaviour
     public float hoverSpeed = -.5f;
     public float upSpeed;
     private bool isJumping;
-    private bool isGrounded;
     //public Vector3 orientation;
     bool doHover = false;
     bool hovering = false;
@@ -52,7 +51,6 @@ public class PlayerControl : MonoBehaviour
         {
             upSpeed -= 9.81f*Time.deltaTime; //gravity
             animator.SetBool("IsGrounded", true);
-            isGrounded = true;
             animator.SetBool("IsJumping", false);
             isJumping = false;
             animator.SetBool("IsFalling", false);
@@ -61,7 +59,6 @@ public class PlayerControl : MonoBehaviour
         else
         {
             animator.SetBool("IsGrounded", false);
-            isGrounded = false;
 
             if ((isJumping && upSpeed < 0) || upSpeed < -6.5f)
             {

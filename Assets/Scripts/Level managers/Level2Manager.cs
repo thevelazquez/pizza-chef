@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class Level2Manager : MonoBehaviour
 {
     public GameObject player;
-    bool awakenedAllStatues = false;
     [SerializeField]
     float killFloorY;
     void Update()

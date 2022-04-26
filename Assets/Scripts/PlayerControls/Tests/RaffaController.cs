@@ -42,7 +42,6 @@ public class RaffaController : MonoBehaviour
     public bool isAttacking = false;
     private bool isHovering;
     private bool isJumping;
-    private bool isGrounded;
     private bool isSneaking;
     private bool canCollect;
     public AudioClip SwingSFX;
@@ -190,7 +189,6 @@ public class RaffaController : MonoBehaviour
             characterController.stepOffset = originalStepOffset;
             ySpeed = -0.5f;
             animator.SetBool("IsGrounded", true);
-            isGrounded = true;
             animator.SetBool("IsJumping", false);
             isJumping = false;
             animator.SetBool("IsFalling", false);
@@ -209,7 +207,6 @@ public class RaffaController : MonoBehaviour
         {
             characterController.stepOffset = 0;
             animator.SetBool("IsGrounded", false);
-            isGrounded = false;
 
             if ((isJumping && ySpeed < 0) || ySpeed < -1)
             {

@@ -10,7 +10,6 @@ public class BoarEnemyController : MonoBehaviour
     Vector3 origin;
     float walkTime = 2f;
     float timer;
-    int boarHealth = 3;
     public float chargeSpeed = 7f;
     public float walkSpeed = 3.5f;
     public float randomDistance; // distance the boar chooses to wander towards
