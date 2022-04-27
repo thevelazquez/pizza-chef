@@ -21,6 +21,7 @@ TagManager:
   - Goddess
   - Blocking
   - InventoryChecker
+  - Lose Text
   layers:
   - Default
   - TransparentFX

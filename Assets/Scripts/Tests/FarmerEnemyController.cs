@@ -34,12 +34,6 @@ public class FarmerEnemyController : MonoBehaviour
     void Update()
     {
         SetDestination();
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-
-        {
-            StartCoroutine(PlayerFade());
-
-        }
     }
 
     void SetDestination()
@@ -59,7 +53,7 @@ public class FarmerEnemyController : MonoBehaviour
                 //source.PlayOneShot(ANGERsfx);
             }
             float distanceToTarget = Vector3.Distance(target.position, transform.position);
-            if (distanceToTarget <= enemy.stoppingDistance)
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Run") && distanceToTarget <= enemy.stoppingDistance)
             {
                 //animator.SetFloat("Speed", 0f, 0.1f, Time.deltaTime);
                 animator.SetTrigger("Attack");
@@ -123,18 +117,9 @@ public class FarmerEnemyController : MonoBehaviour
     {
         enemy.speed = 0;
     }
-    IEnumerator PlayerFade()
+
+    public void PlayerFade()
     {
-        //Print the time of when the function is first called.
-        Debug.Log("Started Coroutine at timestamp : " + Time.time);
-
-        //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(2);
-
-        //After we have waited 5 seconds print the time again.
-        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
-        SceneManager.LoadScene("Level1");
-
-
+        StartCoroutine(player.GetComponent<HPscript>().Lose());
     }
 }

@@ -11,24 +11,26 @@ public class HPscript : MonoBehaviour
     public GameObject Self;
     public GameObject Ingredient;
     Coroutine damaged;
+    GameObject loseMessage;
     // Start is called before the first frame update
     void Start()
     {
         maxHealth = HealthPoints;
+        if(Self.tag == "Player")
+        {
+            loseMessage =  GameObject.FindWithTag("Lose Text");
+            if(loseMessage != null)
+                loseMessage.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(HealthPoints < 1 && Self.tag == "Player" || HealthPoints < 1 && Self.tag == "Blocking")
+        if(HealthPoints < 1 && Self.tag == "Enemy")
         {
-         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-        }
-        else if(HealthPoints < 1 && Self.tag == "Enemy")
-        {
-        Destroy(gameObject);
-        DropIngredient();
+            Destroy(gameObject);
+            DropIngredient();
         }
     }
     
@@ -52,15 +54,34 @@ public class HPscript : MonoBehaviour
 
     public void changeHP(int amount)
     {
-        if(damaged != null)
-            StopCoroutine(damaged);
         HealthPoints+=amount;
-        Debug.Log(Self.name);
-        damaged = StartCoroutine(Damaged());
+        if(loseMessage != null && (HealthPoints < 1 && Self.tag == "Player" || HealthPoints < 1 && Self.tag == "Blocking"))
+        {
+            StartCoroutine(Lose());
+        }
+        else
+        {
+            damaged = StartCoroutine(Damaged());
+        }
+    }
+
+    public IEnumerator Lose()
+    {
+        if(loseMessage != null)
+        {
+            Time.timeScale = 0f;
+            loseMessage.SetActive(true);
+            yield return new WaitForSecondsRealtime(3);
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            loseMessage.SetActive(false);
+        }
     }
 
     IEnumerator Damaged()
     {
+        if(damaged != null)
+            StopCoroutine(damaged);
         showGUI = true;
         yield return new WaitForSeconds(4);
         showGUI = false;
