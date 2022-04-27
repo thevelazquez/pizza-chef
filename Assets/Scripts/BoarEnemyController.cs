@@ -78,7 +78,6 @@ public class BoarEnemyController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision);
         if (collision.gameObject.tag == "Player" && isAngry ==true)
         {
             foreach(ContactPoint contact in collision.contacts)

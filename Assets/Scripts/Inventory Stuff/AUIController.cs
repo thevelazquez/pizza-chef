@@ -15,7 +15,7 @@ public class AUIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I) | Input.GetButton("View Button")) {
+        if (Input.GetKeyDown(KeyCode.I) | Input.GetButtonDown("View Button")) {
             if (AUICanvas.enabled) {
                 AUICanvas.enabled = false;
                 HideCursor();
