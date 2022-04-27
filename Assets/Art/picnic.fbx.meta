@@ -3,7 +3,17 @@ guid: 1b12d8a939543f843a8648915bb6c932
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: darkwoodtex
+    second: {fileID: 2800000, guid: 26d5caa4689e8974abdc354626c8b416, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: woodcrate
+    second: {fileID: 2800000, guid: ef698a24f3f6d6d4ca311532d6320196, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
