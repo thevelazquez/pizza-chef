@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -63748,7 +63748,7 @@ GameObject:
   - component: {fileID: 1867683986}
   - component: {fileID: 1867683985}
   m_Layer: 0
-  m_Name: Goddess initial dialog
+  m_Name: Goddess Initial Dialog
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63767,9 +63767,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Goddess
+    name: Cloud Goddess
     sentences:
-    - Please pray to all the statues if you'd like to trade with me
+    - Please pray to all the statues if you'd like to trade with me.
+    - 
+    - You look nervous... first time speaking with a Goddess.
+    - 
+    - Don't worry, I don't bite. I actually know a great deal about you.
+    - 
+    - Or at least the pizza peel I enchanted for your father.
+    - 
+    - I hope he is doing better.
 --- !u!65 &1867683986
 BoxCollider:
   m_ObjectHideFlags: 0
