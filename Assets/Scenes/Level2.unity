@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -27911,7 +27911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 230121558517793229, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 230121558517793229, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -28217,6 +28217,18 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Play
       objectReference: {fileID: 0}
+    - target: {fileID: 6966116019300072673, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966116019300072673, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966116019300072673, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6980340024936019605, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -28288,6 +28300,14 @@ PrefabInstance:
     - target: {fileID: 8347292865641401704, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136624333990552021, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136624333990552021, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
@@ -29002,7 +29022,7 @@ Transform:
   - {fileID: 181985396}
   - {fileID: 353714805}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &824513654
 GameObject:
@@ -39692,7 +39712,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1150793699
 GameObject:
@@ -63790,7 +63810,7 @@ Transform:
   - {fileID: 1990545696}
   - {fileID: 278310431}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1875942950
 PrefabInstance:
@@ -70194,9 +70214,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2036999136}
   - component: {fileID: 2036999135}
+  - component: {fileID: 2036999137}
   m_Layer: 0
   m_Name: Level Manager
-  m_TagString: Untagged
+  m_TagString: InventoryChecker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70217,6 +70238,9 @@ MonoBehaviour:
   killFloorY: -32
   goddessDialogue: {fileID: 1867683984}
   goddessTrader: {fileID: 1370299024}
+  requiredItems:
+  - Pepper
+  - Pepper
 --- !u!4 &2036999136
 Transform:
   m_ObjectHideFlags: 0
@@ -70225,12 +70249,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036999134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -49.25, y: -6.7875, z: 36.774406}
+  m_LocalPosition: {x: 0.17, y: 2.57, z: -4.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2036999137
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036999134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 5, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2037838814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72738,7 +72775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3963826234507318315, guid: 495d7364ba941c64ba789c9b31b66332, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3963826234507318315, guid: 495d7364ba941c64ba789c9b31b66332, type: 3}
       propertyPath: m_AnchorMax.x

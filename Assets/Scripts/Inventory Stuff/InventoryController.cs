@@ -5,7 +5,7 @@ using System.Linq;
 
 public class InventoryController : MonoBehaviour
 {
-    static List<string> items = new List<string>();
+    public static List<string> items = new List<string>();
     //public GameObject collectibles;
     public GameObject itemList;
     public GameObject itemTemplate;

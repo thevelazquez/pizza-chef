@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class Level2Manager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Level2Manager : MonoBehaviour
     float killFloorY;
     public GameObject goddessDialogue;
     public GameObject goddessTrader;
+    public List<string> requiredItems;
+
     void Update()
     {
         if (player.transform.position.y < killFloorY) {
@@ -30,5 +33,30 @@ public class Level2Manager : MonoBehaviour
     public void InitiateGoddessTrader() {
         goddessDialogue.SetActive(false);
         goddessTrader.SetActive(true);
+    }
+
+    public void hasAllItems() {
+        List<string> requiredItemsCopy = requiredItems.ToList();
+        int i;
+        foreach (string item in InventoryController.items) {
+            i=0;
+            foreach (string tmp in requiredItemsCopy) {
+                if (item == tmp) {
+                    requiredItemsCopy.RemoveAt(i);
+                    Debug.Log("removing item...");
+                    i++;
+                    break;
+                }
+            }
+        }
+        
+        string result = "";
+        foreach (string item in requiredItemsCopy) {
+            result += ", " + item;
+        }
+        Debug.Log($"{result}");
+        if (result == "") {
+            Debug.Log("Collected all items");
+        }
     }
 }

@@ -92,6 +92,9 @@ public class RaffaController : MonoBehaviour
                 animator.SetBool("IsPraying", true);
                 interactiveRef.GetComponent<GuardianController>().Awaken();
                 break;
+            case "InventoryChecker":
+                interactiveRef.GetComponent<Level2Manager>().hasAllItems();
+                break;
         }
         if (interactiveRef.tag == "Teleporter") {
             interactiveRef.GetComponent<TPScript>().changeScene();
@@ -304,6 +307,9 @@ public class RaffaController : MonoBehaviour
                 interactiveRef = x.gameObject;
                 interactiveRef.GetComponent<DialogueTrigger>().TriggerDialogue();
                 break;
+            case "InventoryChecker":
+                interactiveRef = x.gameObject;
+                break;
             default:
                 Debug.Log(x.tag);
                 break;
@@ -340,6 +346,9 @@ public class RaffaController : MonoBehaviour
                 break;
             case "Teleporter":
                 FindObjectOfType<DialogueManager>().EndDialogue();
+                interactiveRef = null;
+                break;
+            case "InventoryChecker":
                 interactiveRef = null;
                 break;
             case "Trader":
