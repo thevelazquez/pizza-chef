@@ -282,7 +282,6 @@ public class RaffaController : MonoBehaviour
                 canCollect = true;
                 interactiveRef = x.gameObject;
                 break;
-           
             case "Milkable":
                 canCollect = true;
                 interactiveRef = x.gameObject;
@@ -309,6 +308,7 @@ public class RaffaController : MonoBehaviour
                 break;
             case "InventoryChecker":
                 interactiveRef = x.gameObject;
+                interactiveRef.GetComponent<DialogueTrigger>().TriggerDialogue();
                 break;
             default:
                 Debug.Log(x.tag);
@@ -350,6 +350,7 @@ public class RaffaController : MonoBehaviour
                 break;
             case "InventoryChecker":
                 interactiveRef = null;
+                FindObjectOfType<DialogueManager>().EndDialogue();
                 break;
             case "Trader":
                 withinTradingRange = false;

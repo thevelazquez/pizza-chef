@@ -12,7 +12,7 @@ public class Level1Win : MonoBehaviour
     }
     // Update is called once per frame
     IEnumerator BackToHub() {
-        yield return 2.0;
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene("HubScene");
     }
 }

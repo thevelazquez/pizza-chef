@@ -11,6 +11,7 @@ public class Level2Manager : MonoBehaviour
     float killFloorY;
     public GameObject goddessDialogue;
     public GameObject goddessTrader;
+    public GameObject winText;
     public List<string> requiredItems;
 
     void Update()
@@ -57,6 +58,7 @@ public class Level2Manager : MonoBehaviour
         Debug.Log($"{result}");
         if (result == "") {
             Debug.Log("Collected all items");
+            winText.SetActive(true);
         }
     }
 }
