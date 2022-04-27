@@ -17,7 +17,7 @@ public class Level2Manager : MonoBehaviour
     void Update()
     {
         if (player.transform.position.y < killFloorY) {
-            SceneManager.LoadScene("Level2");
+            StartCoroutine(player.GetComponent<HPscript>().Lose());
         }
     }
     public void areAllGuardiansAwakened() {
