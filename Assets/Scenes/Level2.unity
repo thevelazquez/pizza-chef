@@ -28126,6 +28126,16 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Play
       objectReference: {fileID: 0}
+    - target: {fileID: 4689193826423618996, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_Text
+      value: '- 2 Peppers
+
+        - 2 Onions
+
+        - 2 Basil
+
+        - 6 Tomatoes'
+      objectReference: {fileID: 0}
     - target: {fileID: 4742829545702058996, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
