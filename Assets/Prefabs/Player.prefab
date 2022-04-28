@@ -1037,7 +1037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withinTradingRange: 0
-  maximumSpeed: 6
+  maximumSpeed: 10
   rotationSpeed: 720
   jumpSpeed: 6
   sneakSpeed: 1.5
