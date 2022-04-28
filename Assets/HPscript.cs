@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class HPscript : MonoBehaviour
 {
-    public int HealthPoints;
+    public int HealthPoints { get; set; }
     int maxHealth;
     bool showGUI = false;
     public GameObject Self;
@@ -43,7 +43,7 @@ public class HPscript : MonoBehaviour
 
     void OnGUI()
     {
-        if(Self.GetComponentInChildren<Renderer>().isVisible && showGUI)
+        if((Self.tag != "Player" || Self.tag != "Blocking") && Self.GetComponentInChildren<Renderer>().isVisible && showGUI)
         {
             Vector3 target = Camera.main.WorldToScreenPoint(Self.transform.position);
             Rect hpGUI = new Rect(target.x, Screen.height - target.y, 60, 20);
