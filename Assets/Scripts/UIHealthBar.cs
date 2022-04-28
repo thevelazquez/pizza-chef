@@ -8,7 +8,8 @@ public class UIHealthBar : MonoBehaviour
     public static UIHealthBar instance { get; private set; }
     public Image mask;
     float originalSize;
-
+public Slider slider;
+    public GameObject player;
     void Awake()
     {
         instance = this;
@@ -24,4 +25,12 @@ public class UIHealthBar : MonoBehaviour
     {
         mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalSize * value);
     }
+  
+    // Update is called once per frame
+    void Update()
+    {
+         slider.value= player.GetComponent<HPscript>().HealthPoints;
+    }
 }
+
+
