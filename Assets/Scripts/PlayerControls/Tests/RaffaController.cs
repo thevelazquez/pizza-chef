@@ -94,6 +94,7 @@ public class RaffaController : MonoBehaviour
                 break;
             case "InventoryChecker":
                 interactiveRef.GetComponent<Level2Manager>().hasAllItems();
+                interactiveRef.GetComponent<Level3Manager>().hasAllItems();
                 break;
         }
         if (interactiveRef.tag == "Teleporter") {

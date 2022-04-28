@@ -24,9 +24,10 @@ public class Level3Manager : MonoBehaviour
                 if (item == tmp) {
                     requiredItemsCopy.RemoveAt(i);
                     Debug.Log("removing item...");
-                    i++;
                     break;
                 }
+
+                i++;
             }
         }
         
@@ -38,6 +39,12 @@ public class Level3Manager : MonoBehaviour
         if (result == "") {
             Debug.Log("Collected all items");
             winText.SetActive(true);
+            StartCoroutine(BackToHub());
         }
+    }
+
+    IEnumerator BackToHub() {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("HubScene");
     }
 }

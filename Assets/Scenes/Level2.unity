@@ -70454,11 +70454,13 @@ MonoBehaviour:
   winText: {fileID: 1614227599}
   requiredItems:
   - Pepper
+  - Onion
+  - Basil
   - Pepper
-  - Onion
-  - Onion
   - Basil
-  - Basil
+  - Onion
+  - Tomato
+  - Tomato
   - Tomato
   - Tomato
   - Tomato

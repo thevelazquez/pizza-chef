@@ -47,9 +47,10 @@ public class Level2Win : MonoBehaviour
                 if (item == tmp) {
                     requiredItemsCopy.RemoveAt(i);
                     Debug.Log("removing item...");
-                    i++;
                     break;
                 }
+
+                i++;
             }
         }
         
