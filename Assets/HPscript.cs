@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class HPscript : MonoBehaviour
 {
-    public int HealthPoints;
+    public int HealthPoints { get; set; }
     int maxHealth;
     bool showGUI = false;
     public GameObject Self;
