@@ -19,6 +19,7 @@ public class Level2Manager : MonoBehaviour
         if (player.transform.position.y < killFloorY) {
             StartCoroutine(player.GetComponent<HPscript>().Lose());
         }
+        hasAllItems();
     }
     public void areAllGuardiansAwakened() {
         foreach (GuardianController guardian in FindObjectsOfType<GuardianController>()) {
