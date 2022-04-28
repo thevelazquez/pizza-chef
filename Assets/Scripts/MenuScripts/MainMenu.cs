@@ -48,6 +48,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        InventoryController.items.Clear();
         SceneManager.LoadScene("HubScene");
     }
 
