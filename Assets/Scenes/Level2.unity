@@ -27914,6 +27914,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 128209289344123629, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 230121558517793229, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -28026,6 +28030,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2012096460559307719, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2747215326956493987, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -28054,6 +28062,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2998129472303760567, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4008689889745294719, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -28064,6 +28076,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4008689889745294719, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008689889745294719, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4125304187312164285, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
@@ -28198,6 +28214,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6082486546452605529, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6839835097467863449, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -28288,6 +28308,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7464587245723056236, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464587245723056236, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7739421129545010606, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
@@ -40231,6 +40255,10 @@ PrefabInstance:
     - target: {fileID: 8133402384080142459, guid: 549e9315e8a41b34c9e5a333d885ab6b, type: 3}
       propertyPath: m_Name
       value: Sign (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133402384080142459, guid: 549e9315e8a41b34c9e5a333d885ab6b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8758446089350028682, guid: 549e9315e8a41b34c9e5a333d885ab6b, type: 3}
       propertyPath: m_RootOrder
@@ -70325,6 +70353,8 @@ GameObject:
   - component: {fileID: 2036999135}
   - component: {fileID: 2036999137}
   - component: {fileID: 2036999138}
+  - component: {fileID: 2036999140}
+  - component: {fileID: 2036999139}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: InventoryChecker
@@ -70339,7 +70369,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036999134}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbf4d5544b460fa468bd8143819646ea, type: 3}
   m_Name: 
@@ -70352,7 +70382,15 @@ MonoBehaviour:
   requiredItems:
   - Pepper
   - Pepper
-  - Olive
+  - Onion
+  - Onion
+  - Basil
+  - Basil
+  - Tomato
+  - Tomato
+  - Tomato
+  - Tomato
+  - Tomato
   - Tomato
 --- !u!4 &2036999136
 Transform:
@@ -70377,7 +70415,7 @@ BoxCollider:
   m_GameObject: {fileID: 2036999134}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
@@ -70397,6 +70435,47 @@ MonoBehaviour:
     name: Win condition
     sentences:
     - Interact when you have all ingredients.
+--- !u!114 &2036999139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036999134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6818bb74ea35e924a9b578d3a56159e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1404395341}
+  killFloorY: -32
+  goddessDialogue: {fileID: 1867683984}
+  goddessTrader: {fileID: 1370299024}
+  winText: {fileID: 1614227599}
+  requiredItems:
+  - Pepper
+  - Pepper
+  - Onion
+  - Onion
+  - Basil
+  - Basil
+  - Tomato
+  - Tomato
+  - Tomato
+  - Tomato
+--- !u!114 &2036999140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036999134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e150112c1c42ac83170b52d898e322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
 --- !u!1001 &2037838814
 PrefabInstance:
   m_ObjectHideFlags: 0
