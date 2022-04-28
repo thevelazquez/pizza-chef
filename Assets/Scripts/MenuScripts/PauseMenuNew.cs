@@ -13,6 +13,8 @@ public class PauseMenuNew : MonoBehaviour
     public GameObject controlScreen;
     public GameObject optionScreen;
     public GameObject genScreen;
+    public GameObject HealthScreen;
+    public GameObject ObjectiveScreen;
     public GameObject UIScreen;
     //public GameObject InvScreen;
     public AudioMixer audioMixer;
@@ -62,6 +64,8 @@ public class PauseMenuNew : MonoBehaviour
             if (isPaused)
             {
                 UIScreen.SetActive(false);
+                HealthScreen.SetActive(true);
+                ObjectiveScreen.SetActive(true);
                 HideCursor();
                 Resume();
             }
@@ -69,6 +73,8 @@ public class PauseMenuNew : MonoBehaviour
             {
                 UIScreen.SetActive(true);
                 //InvScreen.SetActive(false);
+                HealthScreen.SetActive(false);
+                ObjectiveScreen.SetActive(false);
                 ActivateCursor();
                 Pause();
             }

@@ -17506,7 +17506,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155817366}
-  m_LocalRotation: {x: 0.33787125, y: -0.33210447, z: 0.12880018, w: 0.8711832}
+  m_LocalRotation: {x: 0.33787125, y: -0.33210444, z: 0.12880018, w: 0.8711832}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -22572,7 +22572,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527899166}
-  m_LocalRotation: {x: 0.33787122, y: -0.33210444, z: 0.1288002, w: 0.8711832}
+  m_LocalRotation: {x: 0.33787122, y: -0.3321044, z: 0.12880021, w: 0.8711832}
   m_LocalPosition: {x: -2.3050919, y: 15.450323, z: -5.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -23588,6 +23588,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1327614643, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327614643, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856537106, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1856537108, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: player
       value: 
@@ -23610,6 +23622,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 128209289344123629, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 128209289344123629, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 230121558517793229, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
@@ -23724,6 +23740,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2012096460559307719, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2956662528281376328, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -23744,6 +23764,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2998129472303760567, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4008689889745294719, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -23754,6 +23778,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4008689889745294719, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008689889745294719, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4125304187312164285, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
@@ -23802,9 +23830,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4689193826423618996, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_Text
-      value: '- 4 Wheat
+      value: '- 4 Fire Wheat
 
-        - 3 Sugar'
+        - 3 Sugar Crystal'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689193826423618996, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4742829545702058996, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -23892,6 +23924,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6082486546452605529, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082486546452605529, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6839835097467863449, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
@@ -23988,6 +24024,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7464587245723056236, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464587245723056236, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7739421129545010606, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
@@ -31971,7 +32011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 752507141536638862, guid: dcd1aa9090617944595e6db7eb0da227, type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 752507141536638862, guid: dcd1aa9090617944595e6db7eb0da227, type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
@@ -31983,11 +32023,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 752507141536638862, guid: dcd1aa9090617944595e6db7eb0da227, type: 3}
       propertyPath: dialogue.sentences.Array.data[3]
-      value: Find wheat and sugar and bring them back here to make dough.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 752507141536638862, guid: dcd1aa9090617944595e6db7eb0da227, type: 3}
       propertyPath: dialogue.sentences.Array.data[4]
-      value: Find wheat and sugar and bring them back here to make dough.
+      value: Use Objectives List for a reminder.
       objectReference: {fileID: 0}
     - target: {fileID: 752507141536638862, guid: dcd1aa9090617944595e6db7eb0da227, type: 3}
       propertyPath: dialogue.sentences.Array.data[5]
