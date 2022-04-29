@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2512,6 +2512,21 @@ MonoBehaviour:
   nameText: {fileID: 1492603051}
   dialogueText: {fileID: 1662463481}
   animator: {fileID: 1715529217}
+--- !u!114 &129466456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129466451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deca24df47d4be94a9691a9fe108cb8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthPoints: 8
+  Self: {fileID: 129466451}
+  Ingredient: {fileID: 0}
 --- !u!1 &133174028
 GameObject:
   m_ObjectHideFlags: 0
@@ -17506,7 +17521,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155817366}
-  m_LocalRotation: {x: 0.33787125, y: -0.33210447, z: 0.12880018, w: 0.8711832}
+  m_LocalRotation: {x: 0.33787125, y: -0.33210447, z: 0.12880017, w: 0.8711832}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -22572,7 +22587,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527899166}
-  m_LocalRotation: {x: 0.33787122, y: -0.33210444, z: 0.1288002, w: 0.8711832}
+  m_LocalRotation: {x: 0.33787125, y: -0.3321045, z: 0.12880021, w: 0.8711832}
   m_LocalPosition: {x: -2.3050919, y: 15.450323, z: -5.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
