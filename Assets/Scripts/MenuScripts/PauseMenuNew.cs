@@ -65,8 +65,6 @@ public class PauseMenuNew : MonoBehaviour
             if (isPaused)
             {
                 UIScreen.SetActive(false);
-                HealthScreen.SetActive(true);
-                ObjectiveScreen.SetActive(true);
                 HideCursor();
                 Resume();
             }
@@ -74,8 +72,6 @@ public class PauseMenuNew : MonoBehaviour
             {
                 UIScreen.SetActive(true);
                 //InvScreen.SetActive(false);
-                HealthScreen.SetActive(false);
-                ObjectiveScreen.SetActive(false);
                 ActivateCursor();
                 Pause();
             }
@@ -115,6 +111,8 @@ public class PauseMenuNew : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         UIScreen.SetActive(false);
+        HealthScreen.SetActive(true);
+        ObjectiveScreen.SetActive(true);
         dialogue.Show();
         HideCursor();
     }
@@ -129,6 +127,8 @@ public class PauseMenuNew : MonoBehaviour
         creditScreen.SetActive(false);
         controlScreen.SetActive(false);
         optionScreen.SetActive(false);
+        HealthScreen.SetActive(false);
+        ObjectiveScreen.SetActive(false);
         dialogue.Hide();
         ActivateCursor();
     }
