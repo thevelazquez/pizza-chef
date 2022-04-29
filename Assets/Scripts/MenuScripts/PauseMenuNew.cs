@@ -16,6 +16,7 @@ public class PauseMenuNew : MonoBehaviour
     public GameObject HealthScreen;
     public GameObject ObjectiveScreen;
     public GameObject UIScreen;
+    public DialogueManager dialogue;
     //public GameObject InvScreen;
     public AudioMixer audioMixer;
     public Dropdown resolutionDropdown;
@@ -114,6 +115,7 @@ public class PauseMenuNew : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         UIScreen.SetActive(false);
+        dialogue.Show();
         HideCursor();
     }
 
@@ -127,6 +129,7 @@ public class PauseMenuNew : MonoBehaviour
         creditScreen.SetActive(false);
         controlScreen.SetActive(false);
         optionScreen.SetActive(false);
+        dialogue.Hide();
         ActivateCursor();
     }
 

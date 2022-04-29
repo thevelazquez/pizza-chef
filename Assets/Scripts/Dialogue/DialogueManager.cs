@@ -7,7 +7,7 @@ public class DialogueManager : MonoBehaviour
 {
     public Text nameText;
     public Text dialogueText;
-
+    public Canvas dialoguePrefab;
     public Animator animator;
     private Queue<string> sentences;
 
@@ -15,6 +15,18 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
+    }
+
+    public void Show()
+    {
+        if(dialoguePrefab != null)
+            dialoguePrefab.enabled = true;
+    }
+
+    public void Hide()
+    {
+        if(dialoguePrefab != null)
+            dialoguePrefab.enabled = false;
     }
 
     public void StartDialogue (Dialogue dialogue)
