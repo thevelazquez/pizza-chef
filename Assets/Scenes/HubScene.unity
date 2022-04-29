@@ -17527,7 +17527,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155817366}
-  m_LocalRotation: {x: 0.33787125, y: -0.33210444, z: 0.12880018, w: 0.8711832}
+  m_LocalRotation: {x: 0.33787125, y: -0.33210447, z: 0.12880018, w: 0.8711832}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -22593,7 +22593,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527899166}
-  m_LocalRotation: {x: 0.33787122, y: -0.3321044, z: 0.12880021, w: 0.8711832}
+  m_LocalRotation: {x: 0.33787122, y: -0.33210444, z: 0.1288002, w: 0.8711832}
   m_LocalPosition: {x: -2.3050919, y: 15.450323, z: -5.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -23857,7 +23857,7 @@ PrefabInstance:
       propertyPath: m_Text
       value: '- 4 Fire Wheat
 
-        - 3 Sugar Crystal'
+        - 2 Sugar Crystal'
       objectReference: {fileID: 0}
     - target: {fileID: 4689193826423618996, guid: 56c2dd19cb5014442a0fb2e6d97db5a8, type: 3}
       propertyPath: m_FontData.m_FontSize
